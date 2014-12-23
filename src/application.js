@@ -1,10 +1,13 @@
 var createQuestionTypes = function(data){
-  var valuesForQuestionTypes = data;
-  entryList = data.feed.entry;
-  var entrylength = entryList.length;
-  for (var i =0; i < entrylength; i++){
-    console.log(entryList[i].gs$cell.$t);
-  }
+  // entryList = data.feed.entry;
+  // var entrylength = entryList.length;
+  // for (var i = 2; i < entrylength; i = i + 2){
+
+  //   q1 = new questionType;
+  //   q1.initialize(entryList[i].gs$cell.$t, entryList[i+1].gs$cell.$t);
+  //   EngineNameSpace.listOfQuestionTypes.push(q1);
+  //   console.log(EngineNameSpace.listOfQuestionTypes);
+  // }
 }
 
 var createRoles= function(data){
@@ -21,5 +24,5 @@ var createChoices = function(data){
 
 
 $(document).ready( function(){
-
+  //engine = new EngineNameSpace();
 });
