@@ -1,4 +1,4 @@
-describe("QuestionType", function() {
+describe("questionType", function() {
   var qType;
 
   beforeEach(function() {
