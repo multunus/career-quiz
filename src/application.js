@@ -3,7 +3,7 @@ var createQuestionTypes = function(data){
 }
 
 var createRoles= function(data){
-  
+  utils.populateList('role', data.feed.entry); 
 }
 
 var createQuestions= function(data){
