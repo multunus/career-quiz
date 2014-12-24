@@ -82,6 +82,7 @@ describe("utils", function(){
       ref.initialize(entries[2].gs$cell.$t, entries[3].gs$cell.$t);
       var actual = utils.populateList('questionType', entries);
       expect(EngineNameSpace['listOfQuestionTypes'][0]['pid']).toEqual('1');
+      expect(EngineNameSpace['listOfQuestionTypes'][0]['ptype']).toEqual('Profession');
     });
   });
 
