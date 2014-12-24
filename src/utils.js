@@ -26,5 +26,12 @@ utils = {
         break;
     }
     return q;
+  },
+  createArgsList : function(startIndex, numberOfArguments, entryList){
+    var argsList = [];
+    for (j = startIndex; j < startIndex + numberOfArguments; j++){
+      argsList.push(entryList[j].gs$cell.$t);
+    }
+    return argsList;
   }
 }

@@ -48,4 +48,19 @@ describe("utils", function(){
       expect(ref['choiceText']).toBe(actual['choiceText']);
     });
   });
+
+  describe("createArgsList", function(){
+    var entries = [
+      { gs$cell : { $t : 'pid' } },
+      { gs$cell : { $t : 'ptype' } },
+      { gs$cell : { $t : '1' } },
+      { gs$cell : { $t : 'Role' } }
+    ];
+    it("returns an Argument list iterating over entries", function(){
+      var ref = ['1', 'Role'];
+      var actual = utils.createArgsList(2, 2, entries);
+      expect(ref[0]).toBe(actual[0]);
+      expect(ref[1]).toBe(actual[1]);
+    });
+  });
 });
