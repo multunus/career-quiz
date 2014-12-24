@@ -29,9 +29,24 @@ utils = {
   },
   createArgsList : function(startIndex, numberOfArguments, entryList){
     var argsList = [];
-    for (j = startIndex; j < startIndex + numberOfArguments; j++){
+    for (var j = startIndex; j < startIndex + numberOfArguments; j++){
       argsList.push(entryList[j].gs$cell.$t);
     }
     return argsList;
+  },
+  populateList : function(type, entryList){
+    var entriesLength = entryList.length;
+    var listType = utils.getListNameFromType(type)
+    var numberOfArguments = utils.getNumberOfArgumentsFromType(type)
+
+    for (var i = numberOfArguments; i < entriesLength; i = i + numberOfArguments){
+      utils.pushObjectToList(listType, utils.createObject(type, utils.createArgsList(i, numberOfArguments, entryList)));
+    }
+  },
+  getListNameFromType : function(type){
+    return Types[type]['listName'];
+  },
+  getNumberOfArgumentsFromType: function(type){
+    return Types[type]['args'];
   }
 }

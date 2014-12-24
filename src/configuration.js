@@ -7,8 +7,24 @@ var EngineNameSpace = {
 };
 
 var Types = {
-  'questionType' : 2,
-  'question' : 3,
-  'role' : 4,
-  'choice' : 4
+  'questionType' : {
+    'listName' : 'listOfQuestionTypes',
+    'args' : 2
+  },
+  'question' : {
+    'listName' : 'listOfQuestions',
+    'args' : 3
+  },
+  'role' : {
+    'listName' : 'listOfRoles',
+    'args' : 4
+  },
+  'choice' : {
+    'listName' : 'listOfChoices',
+    'args' : 4
+  },
+  'chosenChoice' : {
+    'listName' : 'listOfChosenChoices',
+    'args' : 4
+  }
 };

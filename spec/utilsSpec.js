@@ -1,8 +1,26 @@
 describe("utils", function(){
+  
+  var entries = [
+      { gs$cell : { $t : 'pid' } },
+      { gs$cell : { $t : 'ptype' } },
+      { gs$cell : { $t : '1' } },
+      { gs$cell : { $t : 'Profession' } }
+    ];
+
+  beforeEach(function() {
+    EngineNameSpace = {
+      listOfQuestionTypes : [],
+      listOfQuestions : [],
+      listOfChoices : [],
+      listOfRoles : [],
+      listOfChosenChoices : []
+    };
+  });
+
   describe("pushObjectToList", function(){
     it("add the givenObject to the list listType", function(){
       utils.pushObjectToList('listOfQuestionTypes', "a");
-      expect(EngineNameSpace['listOfQuestionTypes']).toEqual(["a"]);
+      expect(EngineNameSpace['listOfQuestionTypes']).toContain("a");
     });
   });
 
@@ -50,17 +68,34 @@ describe("utils", function(){
   });
 
   describe("createArgsList", function(){
-    var entries = [
-      { gs$cell : { $t : 'pid' } },
-      { gs$cell : { $t : 'ptype' } },
-      { gs$cell : { $t : '1' } },
-      { gs$cell : { $t : 'Role' } }
-    ];
     it("returns an Argument list iterating over entries", function(){
-      var ref = ['1', 'Role'];
+      var ref = ['1', 'Profession'];
       var actual = utils.createArgsList(2, 2, entries);
       expect(ref[0]).toBe(actual[0]);
       expect(ref[1]).toBe(actual[1]);
+    });
+  });
+
+  describe("populateList", function(){
+    it("creates an object and pushes it to the appropriate list", function(){
+      var ref = new questionType();
+      ref.initialize(entries[2].gs$cell.$t, entries[3].gs$cell.$t);
+      var actual = utils.populateList('questionType', entries);
+      expect(EngineNameSpace['listOfQuestionTypes'][0]['pid']).toEqual('1');
+    });
+  });
+
+  describe("getListNameFromType", function(){
+    it("get the list name for the EngineNameSpace", function(){
+      var type  = 'questionType';
+      expect(utils.getListNameFromType(type)).toBe("listOfQuestionTypes");
+    });
+  });
+
+  describe("getNumberOfArgumentsFromType", function(){
+    it("get the number of Arguments for a question type", function(){
+      var type  = 'questionType';
+      expect(utils.getNumberOfArgumentsFromType(type)).toBe(2);
     });
   });
 });
