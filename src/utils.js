@@ -1,4 +1,4 @@
-utils = {
+Utils = {
   pushObjectToList : function(listType, givenObject){
     EngineNameSpace[listType].push(givenObject);
   },
@@ -36,11 +36,11 @@ utils = {
   },
   populateList : function(type, entryList){
     var entriesLength = entryList.length;
-    var listType = utils.getListNameFromType(type)
-    var numberOfArguments = utils.getNumberOfArgumentsFromType(type)
+    var listType = Utils.getListNameFromType(type)
+    var numberOfArguments = Utils.getNumberOfArgumentsFromType(type)
 
     for (var i = numberOfArguments; i < entriesLength; i = i + numberOfArguments){
-      utils.pushObjectToList(listType, utils.createObject(type, utils.createArgsList(i, numberOfArguments, entryList)));
+      Utils.pushObjectToList(listType, Utils.createObject(type, Utils.createArgsList(i, numberOfArguments, entryList)));
     }
   },
   getListNameFromType : function(type){

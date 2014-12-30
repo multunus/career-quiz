@@ -1,4 +1,4 @@
-describe("quizRunner", function(){
+describe("QuizRunner", function(){
 
   describe("getRadioOptionContainer", function(){
     it("creates radio option according to the group", function(){
@@ -6,7 +6,7 @@ describe("quizRunner", function(){
       var choice_id = '1';
       var choice_text = 'Designer';
 
-      expect(quizRunner.getRadioOptionContainer(question_id, choice_id, choice_text)).toBe("<div><input type='radio' value='"+ choice_id+ "' name='"+ question_id + "'>" + choice_text + "</div>");
+      expect(QuizRunner.getRadioOptionContainer(question_id, choice_id, choice_text)).toBe("<div><input type='radio' value='"+ choice_id+ "' name='"+ question_id + "'>" + choice_text + "</div>");
     });
   });
 
@@ -21,7 +21,7 @@ describe("quizRunner", function(){
 
     it("gets choices from a question", function(){
       var question_id = '1';
-      expect(quizRunner.getChoicesForQuestion(question_id)).toEqual([{'questionId' : '1'}, {'questionId' : '1'}]);
+      expect(QuizRunner.getChoicesForQuestion(question_id)).toEqual([{'questionId' : '1'}, {'questionId' : '1'}]);
     });
   });
 
@@ -34,7 +34,7 @@ describe("quizRunner", function(){
       };
     });
     it("gets the question given a specific id", function(){
-      expect(quizRunner.getElementFromListById(EngineNameSpace['listOfQuestions'], '1')).toEqual({'pid' : '1', 'questionText': 'What makes you lose track of time?'});
+      expect(QuizRunner.getElementFromListById(EngineNameSpace['listOfQuestions'], '1')).toEqual({'pid' : '1', 'questionText': 'What makes you lose track of time?'});
     });
   });
 
@@ -49,7 +49,7 @@ describe("quizRunner", function(){
       };
     });
     it("fills the questionnaire container with the choices", function(){
-      quizRunner.fillQuestionContainer('1');
+      QuizRunner.fillQuestionContainer('1');
       expect("#question-text").toHaveText('What are you curious about learning?');
       expect("#choices").toContainElement('div input');
     });
@@ -65,7 +65,7 @@ describe("quizRunner", function(){
       };
     });
     it("pushes the selected choice to the listOfChosenChoices", function(){
-      quizRunner.pushChosenChoice('1');
+      QuizRunner.pushChosenChoice('1');
       expect(EngineNameSpace.listOfChosenChoices).toEqual([{'pid': '1', 'questionId' : '1', 'choiceText': 'New programming techniques.'}]);
     });
   });
