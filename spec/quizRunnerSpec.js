@@ -15,11 +15,7 @@ describe("quizRunner", function(){
       var choice1 = {'questionId' : '1'};
       var choice2 = {'questionId' : '1'};
       EngineNameSpace = {
-        listOfQuestionTypes : [],
-        listOfQuestions : [],
-        listOfChoices : [choice1, choice2],
-        listOfRoles : [],
-        listOfChosenChoices : []
+        listOfChoices : [choice1, choice2]
       };
     });
 
@@ -48,11 +44,8 @@ describe("quizRunner", function(){
       var choice1 = {'pid': '1', 'questionId' : '1', 'choiceText': 'New programming techniques.'};
       var choice2 ={'pid': '2', 'questionId' : '1', 'choiceText': 'New design techniques.'};
       EngineNameSpace = {
-        listOfQuestionTypes : [],
         listOfQuestions : [question],
-        listOfChoices : [choice1, choice2],
-        listOfRoles : [],
-        listOfChosenChoices : []
+        listOfChoices : [choice1, choice2]
       };
     });
     it("fills the questionnaire container with the choices", function(){
