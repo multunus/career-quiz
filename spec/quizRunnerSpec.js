@@ -29,7 +29,7 @@ describe("quizRunner", function(){
     });
   });
 
-  describe("getQuestionFromId", function(){
+  describe("getElementFromListById", function(){
     beforeEach(function(){
       var question1 = {'pid' : '1', 'questionText': 'What makes you lose track of time?'};
       var question2 = {'pid' : '2', 'questionText': 'What are you curious about learning?'};
@@ -38,7 +38,7 @@ describe("quizRunner", function(){
       };
     });
     it("gets the question given a specific id", function(){
-      expect(quizRunner.getQuestionFromId('1')).toEqual({'pid' : '1', 'questionText': 'What makes you lose track of time?'});
+      expect(quizRunner.getElementFromListById(EngineNameSpace['listOfQuestions'], '1')).toEqual({'pid' : '1', 'questionText': 'What makes you lose track of time?'});
     });
   });
 
