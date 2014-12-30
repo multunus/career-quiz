@@ -28,4 +28,37 @@ describe("quizRunner", function(){
       expect(quizRunner.getChoicesForQuestion(question_id)).toEqual([choice1, choice2]);
     });
   });
+
+  describe("getQuestionFromId", function(){
+    beforeEach(function(){
+      var question1 = {'pid' : '1', 'questionText': 'What makes you lose track of time?'};
+      var question2 = {'pid' : '2', 'questionText': 'What are you curious about learning?'};
+      EngineNameSpace = {
+        listOfQuestions : [question1, question2]
+      };
+    });
+    it("gets the question given a specific id", function(){
+      expect(quizRunner.getQuestionFromId('1')).toEqual({'pid' : '1', 'questionText': 'What makes you lose track of time?'});
+    });
+  });
+
+  describe("fillQuestionContainer", function(){
+    beforeEach(function() {
+      var question = {'pid' : '1', 'questionText': 'What are you curious about learning?'}
+      var choice1 = {'pid': '1', 'questionId' : '1', 'choiceText': 'New programming techniques.'};
+      var choice2 ={'pid': '2', 'questionId' : '1', 'choiceText': 'New design techniques.'};
+      EngineNameSpace = {
+        listOfQuestionTypes : [],
+        listOfQuestions : [question],
+        listOfChoices : [choice1, choice2],
+        listOfRoles : [],
+        listOfChosenChoices : []
+      };
+    });
+    it("fills the questionnaire container with the choices", function(){
+      quizRunner.fillQuestionContainer('1');
+      expect("#question-text").toHaveText('What are you curious about learning?');
+      expect("#choices").toContainElement('div input');
+    });
+  });
 });
