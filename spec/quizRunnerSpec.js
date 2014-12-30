@@ -12,8 +12,8 @@ describe("quizRunner", function(){
 
   describe("getChoicesForQuestion", function(){
      beforeEach(function() {
-      choice1 = {'questionId' : '1'};
-      choice2 ={'questionId' : '1'};
+      var choice1 = {'questionId' : '1'};
+      var choice2 = {'questionId' : '1'};
       EngineNameSpace = {
         listOfQuestionTypes : [],
         listOfQuestions : [],
@@ -25,7 +25,7 @@ describe("quizRunner", function(){
 
     it("gets choices from a question", function(){
       var question_id = '1';
-      expect(quizRunner.getChoicesForQuestion(question_id)).toEqual([choice1, choice2]);
+      expect(quizRunner.getChoicesForQuestion(question_id)).toEqual([{'questionId' : '1'}, {'questionId' : '1'}]);
     });
   });
 
@@ -59,6 +59,21 @@ describe("quizRunner", function(){
       quizRunner.fillQuestionContainer('1');
       expect("#question-text").toHaveText('What are you curious about learning?');
       expect("#choices").toContainElement('div input');
+    });
+  });
+
+  describe("pushChosenChoice", function(){
+    beforeEach(function() {
+      var choice1 = {'pid': '1', 'questionId' : '1', 'choiceText': 'New programming techniques.'};
+      var choice2 ={'pid': '2', 'questionId' : '1', 'choiceText': 'New design techniques.'};
+      EngineNameSpace = {
+        listOfChoices : [choice1, choice2],
+        listOfChosenChoices : []
+      };
+    });
+    it("pushes the selected choice to the listOfChosenChoices", function(){
+      quizRunner.pushChosenChoice('1');
+      expect(EngineNameSpace.listOfChosenChoices).toEqual([{'pid': '1', 'questionId' : '1', 'choiceText': 'New programming techniques.'}]);
     });
   });
 });
