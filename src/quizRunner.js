@@ -27,7 +27,6 @@ QuizRunner = {
       QuizRunner.fillQuestionContainer((EngineNameSpace.currentQuestion).toString());
     }
     else {
-      console.log("yahoooo");
       $('#start-container').hide();
       $('#quiz-container').hide();
       $('#results-container').show();

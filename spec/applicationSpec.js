@@ -64,10 +64,10 @@ describe("application", function(){
     });
 
     describe("if a choice is selected", function(){
-      beforeEach(function(){
+      describe("and current question is not last (Question 1, Choice 1 selected)", function(){
+        beforeEach(function(){
           $("input[value='1']").prop("checked", true);
-      });
-      describe("and current question is not last", function(){
+        });
         it("triggers a click event and displays question", function(){
           var spySubmitChoice = spyOnEvent('#submit-choice', 'click');
           $("#submit-choice").click();
@@ -81,21 +81,22 @@ describe("application", function(){
         });
       });
       
-      // describe("and current question is last", function(){
-      //   beforeEach(function(){
-      //     EngineNameSpace.currentQuestion = 2;
-      //   });
-      //   it("displays result of the quiz", function(){
-      //     var spySubmitChoice = spyOnEvent('#submit-choice', 'click');
-      //     $("#submit-choice").click();
-      //     expect('click').toHaveBeenTriggeredOn('#submit-choice');
-      //     expect(spySubmitChoice).toHaveBeenTriggered();
-      //     expect(EngineNameSpace.currentQuestion).toBe(2);
-      //     expect($("#start-container")).toBeHidden();
-      //     expect($("#quiz-container")).toBeHidden();
-      //     expect($("#results-container")).not.toBeHidden();
-      //   });
-      // });
+      describe("and current question is last  (Question 2, Choice 3 selected)", function(){
+        beforeEach(function(){
+          $("input[value='3']").prop("checked", true);
+          EngineNameSpace.currentQuestion = 2;
+        });
+        it("displays result of the quiz", function(){
+          var spySubmitChoice = spyOnEvent('#submit-choice', 'click');
+          $("#submit-choice").click();
+          expect('click').toHaveBeenTriggeredOn('#submit-choice');
+          expect(spySubmitChoice).toHaveBeenTriggered();
+          expect(EngineNameSpace.currentQuestion).toBe(2);
+          expect($("#start-container")).toBeHidden();
+          expect($("#quiz-container")).toBeHidden();
+          expect($("#results-container")).not.toBeHidden();
+        });
+      });
     });
   });
   
