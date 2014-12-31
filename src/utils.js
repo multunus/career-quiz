@@ -22,7 +22,7 @@ Utils = {
 
       case 'choice':
         q = new choice();
-        q.initialize(argsList[0], argsList[1], argsList[2], argsList[3]);
+        q.initialize(argsList[0], argsList[1], argsList[2], argsList[3], argsList[4]);
         break;
     }
     return q;

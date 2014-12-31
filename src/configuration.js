@@ -22,10 +22,10 @@ var Types = {
   },
   'choice' : {
     'listName' : 'listOfChoices',
-    'args' : 4
+    'args' : 5
   },
   'chosenChoice' : {
     'listName' : 'listOfChosenChoices',
-    'args' : 4
+    'args' : 5
   }
 };

@@ -81,9 +81,11 @@ describe("JsonHandler", function(){
       feed: {
         entry : [
           { gs$cell : { $t : 'pid' } },
+          { gs$cell : { $t : 'questionTypeId' } },
           { gs$cell : { $t : 'questionId' } },
           { gs$cell : { $t : 'roleId' } },
           { gs$cell : { $t : 'choiceText' } },
+          { gs$cell : { $t : '1' } },
           { gs$cell : { $t : '1' } },
           { gs$cell : { $t : '1' } },
           { gs$cell : { $t : '1' } },
@@ -95,6 +97,7 @@ describe("JsonHandler", function(){
     it("should create a list of objects in listOfChoices", function(){
       JsonHandler.createChoices(data);
       expect(EngineNameSpace['listOfChoices'][0]['pid']).toEqual('1');
+      expect(EngineNameSpace['listOfChoices'][0]['questionTypeId']).toEqual('1');
       expect(EngineNameSpace['listOfChoices'][0]['questionId']).toEqual('1');
       expect(EngineNameSpace['listOfChoices'][0]['roleId']).toEqual('1');
       expect(EngineNameSpace['listOfChoices'][0]['choiceText']).toEqual('You enjoy finding solutions to problems.');

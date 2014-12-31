@@ -6,10 +6,10 @@ describe("QuizRunner", function(){
     var role2 = {'pid' : '2', 'questionTypeId' : '1', 'roleName': 'designer', 'roleText': 'You are an artist. You can become a great designer.'};
     var question1 = {'pid' : '1', 'questionTypeId' : '1', 'questionText': 'What makes you lose track of time?'};
     var question2 = {'pid' : '2', 'questionTypeId' : '1', 'questionText': 'What are you curious about learning?'};
-    var choice1 = {'pid': '1', 'questionId' : '1', 'roleId': '1', 'choiceText': 'Solving a puzzle.'};
-    var choice2 = {'pid': '2', 'questionId' : '1', 'roleId': '2', 'choiceText': 'Designing something beautiful.'};
-    var choice3 = {'pid': '3', 'questionId' : '2', 'roleId': '1', 'choiceText': 'New programming techniques.'};
-    var choice4 = {'pid': '4', 'questionId' : '2', 'roleId': '2', 'choiceText': 'New design techniques.'};
+    var choice1 = {'pid': '1', 'questionTypeId' : '1', 'questionId' : '1', 'roleId': '1', 'choiceText': 'Solving a puzzle.'};
+    var choice2 = {'pid': '2', 'questionTypeId' : '1', 'questionId' : '1', 'roleId': '2', 'choiceText': 'Designing something beautiful.'};
+    var choice3 = {'pid': '3', 'questionTypeId' : '1', 'questionId' : '2', 'roleId': '1', 'choiceText': 'New programming techniques.'};
+    var choice4 = {'pid': '4', 'questionTypeId' : '1', 'questionId' : '2', 'roleId': '2', 'choiceText': 'New design techniques.'};
     
     EngineNameSpace = {
       listOfQuestionTypes : [questionType],
@@ -34,7 +34,7 @@ describe("QuizRunner", function(){
   describe("getChoicesForQuestion", function(){
     it("gets choices from a question", function(){
       var question_id = '1';
-      expect(QuizRunner.getChoicesForQuestion(question_id)).toEqual([{ pid: '1', questionId: '1', roleId: '1', choiceText: 'Solving a puzzle.' }, { pid: '2', questionId: '1', roleId: '2', choiceText: 'Designing something beautiful.' }]);
+      expect(QuizRunner.getChoicesForQuestion(question_id)).toEqual([{ pid: '1', questionTypeId: '1', questionId: '1', roleId: '1', choiceText: 'Solving a puzzle.' }, { pid: '2', questionTypeId: '1', questionId: '1', roleId: '2', choiceText: 'Designing something beautiful.' }]);
     });
   });
 
@@ -55,7 +55,7 @@ describe("QuizRunner", function(){
   describe("pushChosenChoice", function(){
     it("pushes the selected choice to the listOfChosenChoices", function(){
       QuizRunner.pushChosenChoice('1');
-      expect(EngineNameSpace.listOfChosenChoices).toEqual([{ pid: '1', questionId: '1', roleId: '1', choiceText: 'Solving a puzzle.' }]);
+      expect(EngineNameSpace.listOfChosenChoices).toEqual([{ pid: '1', questionTypeId: '1', questionId: '1', roleId: '1', choiceText: 'Solving a puzzle.' }]);
     });
   });
 
@@ -93,6 +93,5 @@ describe("QuizRunner", function(){
         expect($('#quiz-container')).toBeHidden();
       });
     });
-    
   });
 });
