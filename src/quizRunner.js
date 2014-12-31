@@ -11,11 +11,20 @@ QuizRunner = {
   fillQuestionContainer: function(questionId){
     $("#question-text").text(QuizRunner.getElementFromListById(EngineNameSpace['listOfQuestions'], questionId).questionText);
     var choices = QuizRunner.getChoicesForQuestion(questionId);
+    $("#choices").empty();
     _.each(choices, function(choice){ $("#choices").append(QuizRunner.getRadioOptionContainer(choice.questionId, choice.pid, choice.choiceText))})
   },
   pushChosenChoice : function(choiceId){
     var choice = QuizRunner.getElementFromListById(EngineNameSpace['listOfChoices'], choiceId);
-    console.log(choice);
     Utils.pushObjectToList('listOfChosenChoices', choice);
+  },
+  showNextQuestion: function(){
+    if (EngineNameSpace.currentQuestion < EngineNameSpace.listOfQuestions.length) {
+      EngineNameSpace.currentQuestion += 1;
+      QuizRunner.fillQuestionContainer((EngineNameSpace.currentQuestion).toString());
+    }
+    else {
+      // showResultsScreen
+    }
   }
 };

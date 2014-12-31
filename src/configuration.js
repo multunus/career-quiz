@@ -3,7 +3,8 @@ var EngineNameSpace = {
   listOfQuestions : [],
   listOfChoices : [],
   listOfRoles : [],
-  listOfChosenChoices : []
+  listOfChosenChoices : [],
+  currentQuestion : 0
 };
 
 var Types = {
