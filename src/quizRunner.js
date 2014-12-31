@@ -27,7 +27,10 @@ QuizRunner = {
       QuizRunner.fillQuestionContainer((EngineNameSpace.currentQuestion).toString());
     }
     else {
-      // showResultsScreen
+      console.log("yahoooo");
+      $('#start-container').hide();
+      $('#quiz-container').hide();
+      $('#results-container').show();
     }
   }
 };

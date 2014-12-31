@@ -40,5 +40,63 @@ describe("application", function(){
       expect('#question-text').toHaveText('What makes you lose track of time?');
     });
   });
+
+  describe("on click of submit-choice button", function(){
+    beforeEach(function(){
+      $("#start-container").hide();
+      $("#quiz-container").show();
+      $("#results-container").hide();
+      $("#error-field").hide();
+      EngineNameSpace.currentQuestion = 1;
+    });
+    
+    describe("if no choice is selected", function(){
+      it("triggers a click event and shows error field", function(){
+        var spySubmitChoice = spyOnEvent('#submit-choice', 'click');
+        $("#submit-choice").click();
+        expect('click').toHaveBeenTriggeredOn('#submit-choice');
+        expect(spySubmitChoice).toHaveBeenTriggered();
+        expect($("#start-container")).toBeHidden();
+        expect($("#results-container")).toBeHidden();
+        expect($("#quiz-container")).not.toBeHidden();
+        expect($("#error-field")).not.toBeHidden();
+      });
+    });
+
+    describe("if a choice is selected", function(){
+      beforeEach(function(){
+          $("input[value='1']").prop("checked", true);
+      });
+      describe("and current question is not last", function(){
+        it("triggers a click event and displays question", function(){
+          var spySubmitChoice = spyOnEvent('#submit-choice', 'click');
+          $("#submit-choice").click();
+          expect('click').toHaveBeenTriggeredOn('#submit-choice');
+          expect(spySubmitChoice).toHaveBeenTriggered();
+          expect($("#start-container")).toBeHidden();
+          expect($("#results-container")).toBeHidden();
+          expect($("#quiz-container")).not.toBeHidden();
+          expect(EngineNameSpace.currentQuestion).toBe(2);
+          expect('#question-text').toHaveText('What are you curious about learning?');
+        });
+      });
+      
+      // describe("and current question is last", function(){
+      //   beforeEach(function(){
+      //     EngineNameSpace.currentQuestion = 2;
+      //   });
+      //   it("displays result of the quiz", function(){
+      //     var spySubmitChoice = spyOnEvent('#submit-choice', 'click');
+      //     $("#submit-choice").click();
+      //     expect('click').toHaveBeenTriggeredOn('#submit-choice');
+      //     expect(spySubmitChoice).toHaveBeenTriggered();
+      //     expect(EngineNameSpace.currentQuestion).toBe(2);
+      //     expect($("#start-container")).toBeHidden();
+      //     expect($("#quiz-container")).toBeHidden();
+      //     expect($("#results-container")).not.toBeHidden();
+      //   });
+      // });
+    });
+  });
   
 });
