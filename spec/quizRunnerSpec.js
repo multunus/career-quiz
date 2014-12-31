@@ -94,4 +94,12 @@ describe("QuizRunner", function(){
       });
     });
   });
+describe("groupChoicesByQuestionTypes", function(){
+    beforeEach(function() {
+        EngineNameSpace.listOfChosenChoices = [{'pid': '1', 'questionTypeId' : '1', 'questionId' : '1', 'roleId': '1', 'choiceText': 'Solving a puzzle.'}, {'pid': '3','questionTypeId' : '1', 'questionId' : '2', 'roleId': '1', 'choiceText': 'New programming techniques.'} ];
+    });
+    it("groups choices by questionTypes", function(){
+      expect(QuizRunner.groupChoicesByQuestionTypes()).toEqual({ 1: [ { pid: '1', questionTypeId: '1', questionId: '1', roleId: '1', choiceText: 'Solving a puzzle.' }, { pid: '3', questionTypeId: '1', questionId: '2', roleId: '1', choiceText: 'New programming techniques.' } ]});
+    });
+  });
 });

@@ -31,5 +31,10 @@ QuizRunner = {
       $('#quiz-container').hide();
       $('#results-container').show();
     }
+  },
+  groupChoicesByQuestionTypes: function(){
+    return _.groupBy(EngineNameSpace.listOfChosenChoices, function(choice){
+      return choice.questionTypeId;
+    });
   }
 };
