@@ -20,6 +20,9 @@ QuizRunner = {
   },
   showNextQuestion: function(){
     if (EngineNameSpace.currentQuestion < EngineNameSpace.listOfQuestions.length) {
+      $('.start-container').hide();
+      $('.results-container').hide();
+      $('.quiz-container').show();
       EngineNameSpace.currentQuestion += 1;
       QuizRunner.fillQuestionContainer((EngineNameSpace.currentQuestion).toString());
     }

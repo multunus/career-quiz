@@ -1,4 +1,4 @@
-jsonHandler = {
+JsonHandler = {
   createQuestionTypes : function(data){
    Utils.populateList('questionType', data.feed.entry);
   },

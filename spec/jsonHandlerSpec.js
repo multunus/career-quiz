@@ -1,4 +1,4 @@
-describe("jsonHandler", function(){
+describe("JsonHandler", function(){
 
   beforeEach(function() {
     EngineNameSpace = {
@@ -23,7 +23,7 @@ describe("jsonHandler", function(){
     };
     
     it("should create a list of objects in listOfQuestionTypes", function(){
-      jsonHandler.createQuestionTypes(data);
+      JsonHandler.createQuestionTypes(data);
       expect(EngineNameSpace['listOfQuestionTypes'][0]['pid']).toEqual('1');
       expect(EngineNameSpace['listOfQuestionTypes'][0]['ptype']).toEqual('Profession');
     });
@@ -46,7 +46,7 @@ describe("jsonHandler", function(){
     };
     
     it("should create a list of objects in listOfRoles", function(){
-      jsonHandler.createRoles(data);
+      JsonHandler.createRoles(data);
       expect(EngineNameSpace['listOfRoles'][0]['pid']).toEqual('1');
       expect(EngineNameSpace['listOfRoles'][0]['questionTypeId']).toEqual('1');
       expect(EngineNameSpace['listOfRoles'][0]['roleName']).toEqual('programmer');
@@ -69,7 +69,7 @@ describe("jsonHandler", function(){
     };
     
     it("should create a list of objects in listOfQuestions", function(){
-      jsonHandler.createQuestions(data);
+      JsonHandler.createQuestions(data);
       expect(EngineNameSpace['listOfQuestions'][0]['pid']).toEqual('1');
       expect(EngineNameSpace['listOfQuestions'][0]['questionTypeId']).toEqual('1');
       expect(EngineNameSpace['listOfQuestions'][0]['questionText']).toEqual('How do you spend your time?');
@@ -93,7 +93,7 @@ describe("jsonHandler", function(){
     };
     
     it("should create a list of objects in listOfChoices", function(){
-      jsonHandler.createChoices(data);
+      JsonHandler.createChoices(data);
       expect(EngineNameSpace['listOfChoices'][0]['pid']).toEqual('1');
       expect(EngineNameSpace['listOfChoices'][0]['questionId']).toEqual('1');
       expect(EngineNameSpace['listOfChoices'][0]['roleId']).toEqual('1');

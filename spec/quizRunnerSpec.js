@@ -86,10 +86,17 @@ describe("QuizRunner", function(){
     });
     it("displays the next question", function(){
       QuizRunner.showNextQuestion();
+      // Check for hide and show stuff
+      expect($(".start-container")).toBeHidden();
+      expect($(".results-container")).toBeHidden();
+      expect($(".quiz-container")).not.toBeHidden();
+
+      // Check for question text and options
       expect("#question-text").toHaveText('What makes you lose track of time?');
       expect("input[value='1']").toBeInDOM();
       QuizRunner.showNextQuestion();
       expect("#question-text").toHaveText('What are you curious about learning?');
+      expect("input[value='1']").not.toBeInDOM();
       expect("input[value='3']").toBeInDOM();
     });
   });
