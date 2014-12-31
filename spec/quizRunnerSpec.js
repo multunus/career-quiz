@@ -50,8 +50,8 @@ describe("QuizRunner", function(){
     });
     it("fills the questionnaire container with the choices", function(){
       QuizRunner.fillQuestionContainer('1');
-      expect("#question-text").toHaveText('What are you curious about learning?');
-      expect("#choices").toContainElement('div input');
+      expect('#question-text').toHaveText('What are you curious about learning?');
+      expect('#choices').toContainElement('div input');
     });
   });
 
@@ -75,9 +75,9 @@ describe("QuizRunner", function(){
       var question1 = {'pid' : '1', 'questionText': 'What makes you lose track of time?'};
       var question2 = {'pid' : '2', 'questionText': 'What are you curious about learning?'};
       var choice1 = {'pid': '1', 'questionId' : '1', 'choiceText': 'Solving a puzzle.'};
-      var choice2 ={'pid': '2', 'questionId' : '1', 'choiceText': 'Designing something beautiful.'};
+      var choice2 = {'pid': '2', 'questionId' : '1', 'choiceText': 'Designing something beautiful.'};
       var choice3 = {'pid': '3', 'questionId' : '2', 'choiceText': 'New programming techniques.'};
-      var choice4 ={'pid': '4', 'questionId' : '2', 'choiceText': 'New design techniques.'};
+      var choice4 = {'pid': '4', 'questionId' : '2', 'choiceText': 'New design techniques.'};
       EngineNameSpace = {
         listOfQuestions : [question1, question2],
         listOfChoices : [choice1, choice2, choice3, choice4],
@@ -87,15 +87,15 @@ describe("QuizRunner", function(){
     it("displays the next question", function(){
       QuizRunner.showNextQuestion();
       // Check for hide and show stuff
-      expect($(".start-container")).toBeHidden();
-      expect($(".results-container")).toBeHidden();
-      expect($(".quiz-container")).not.toBeHidden();
+      expect($('#start-container')).toBeHidden();
+      expect($('#results-container')).toBeHidden();
+      expect($('#quiz-container')).not.toBeHidden();
 
       // Check for question text and options
-      expect("#question-text").toHaveText('What makes you lose track of time?');
+      expect('#question-text').toHaveText('What makes you lose track of time?');
       expect("input[value='1']").toBeInDOM();
       QuizRunner.showNextQuestion();
-      expect("#question-text").toHaveText('What are you curious about learning?');
+      expect('#question-text').toHaveText('What are you curious about learning?');
       expect("input[value='1']").not.toBeInDOM();
       expect("input[value='3']").toBeInDOM();
     });

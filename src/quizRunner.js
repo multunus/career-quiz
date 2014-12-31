@@ -9,9 +9,9 @@ QuizRunner = {
     return _.find(list, function(q){ if ( q.pid == elementId ) { return q; }});
   },
   fillQuestionContainer: function(questionId){
-    $("#question-text").text(QuizRunner.getElementFromListById(EngineNameSpace['listOfQuestions'], questionId).questionText);
+    $('#question-text').text(QuizRunner.getElementFromListById(EngineNameSpace['listOfQuestions'], questionId).questionText);
     var choices = QuizRunner.getChoicesForQuestion(questionId);
-    $("#choices").empty();
+    $('#choices').empty();
     _.each(choices, function(choice){ $("#choices").append(QuizRunner.getRadioOptionContainer(choice.questionId, choice.pid, choice.choiceText))})
   },
   pushChosenChoice : function(choiceId){
@@ -20,9 +20,9 @@ QuizRunner = {
   },
   showNextQuestion: function(){
     if (EngineNameSpace.currentQuestion < EngineNameSpace.listOfQuestions.length) {
-      $('.start-container').hide();
-      $('.results-container').hide();
-      $('.quiz-container').show();
+      $('#start-container').hide();
+      $('#results-container').hide();
+      $('#quiz-container').show();
       EngineNameSpace.currentQuestion += 1;
       QuizRunner.fillQuestionContainer((EngineNameSpace.currentQuestion).toString());
     }
