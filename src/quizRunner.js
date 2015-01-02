@@ -24,15 +24,13 @@ QuizRunner = {
       $('#results-container').hide();
       $('#quiz-container').show();
       EngineNameSpace.currentQuestion += 1;
-      var currQuestion = (EngineNameSpace.currentQuestion).toString();
-      QuizRunner.pushChosenChoice(currQuestion);
-      QuizRunner.fillQuestionContainer(currQuestion);
+      QuizRunner.fillQuestionContainer((EngineNameSpace.currentQuestion).toString());
     }
     else {
       $('#start-container').hide();
       $('#quiz-container').hide();
+      QuizRunner.displayResults();
       $('#results-container').show();
-      //QuizRunner.displayResults();
     }
   },
   groupChoicesByQuestionTypes: function(){
@@ -45,7 +43,25 @@ QuizRunner = {
       return choice.roleId;
     });
   },
+  findMostSuitableRole: function(groupByRoles){
+    var roleCounts = [];
+    _.each(groupByRoles, function(value, key){
+      var roleData = {'roleId' : key, 'numberOfElements' : value.length};
+      roleCounts.push(roleData);
+    });
+    return (_.max(roleCounts, function(role){ return role.numberOfElements})).roleId;
+  },
   displayResults: function(){
-    
+    var groupByQuestionTypes = QuizRunner.groupChoicesByQuestionTypes();
+    _.each(groupByQuestionTypes, function(value, key) {
+      console.log(key, value);
+      var qType = QuizRunner.getElementFromListById(EngineNameSpace.listOfQuestionTypes, key);
+      var qTypeElement = "<div class='qTypeText'>" + qType.ptype + "</div>";
+      var groupByRoles = QuizRunner.groupChoicesByRoles(value);
+      var chosenRoleId = QuizRunner.findMostSuitableRole(groupByRoles);
+      var chosenRole = QuizRunner.getElementFromListById(EngineNameSpace.listOfRoles, chosenRoleId);
+      var roleElement = "<div class='roleText'>" + chosenRole.roleText + "</div>";
+      $("#result-text").append(qTypeElement).append(roleElement);
+    });
   }
 };

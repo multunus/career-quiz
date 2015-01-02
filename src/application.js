@@ -11,6 +11,7 @@ $(document).ready( function(){
     }
     else {
       $("#error-field").hide();
+      QuizRunner.pushChosenChoice(radioChecked[0].value);
       QuizRunner.showNextQuestion();
     }
   });

@@ -77,6 +77,7 @@ describe("application", function(){
           expect($("#results-container")).toBeHidden();
           expect($("#quiz-container")).not.toBeHidden();
           expect(EngineNameSpace.currentQuestion).toBe(2);
+          expect((EngineNameSpace.listOfChosenChoices).length).toBe(1);
           expect('#question-text').toHaveText('What are you curious about learning?');
         });
       });
@@ -99,5 +100,4 @@ describe("application", function(){
       });
     });
   });
-  
 });

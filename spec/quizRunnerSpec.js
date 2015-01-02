@@ -70,7 +70,6 @@ describe("QuizRunner", function(){
         expect($('#start-container')).toBeHidden();
         expect($('#results-container')).toBeHidden();
         expect($('#quiz-container')).not.toBeHidden();
-        expect((EngineNameSpace.listOfChosenChoices).length).toBe(1);
 
         // Check for question text and options
         expect('#question-text').toHaveText('What makes you lose track of time?');
@@ -78,7 +77,6 @@ describe("QuizRunner", function(){
 
         //2nd Question
         QuizRunner.showNextQuestion();
-        expect((EngineNameSpace.listOfChosenChoices).length).toBe(2);
         expect('#question-text').toHaveText('What are you curious about learning?');
         expect("input[value='1']").not.toBeInDOM();
         expect("input[value='3']").toBeInDOM();
@@ -110,6 +108,26 @@ describe("QuizRunner", function(){
     it("given a list of choices, groups by roles", function(){
       expect(QuizRunner.groupChoicesByRoles([ { pid: '1', questionTypeId: '1', questionId: '1', roleId: '1', choiceText: 'Solving a puzzle.' }, { pid: '3', questionTypeId: '1', questionId: '2', roleId: '1', choiceText: 'New programming techniques.' } ]))
       .toEqual({ 1: [ { pid: '1', questionTypeId: '1', questionId: '1', roleId: '1', choiceText: 'Solving a puzzle.' }, { pid: '3', questionTypeId: '1', questionId: '2', roleId: '1', choiceText: 'New programming techniques.' } ]});
+    });
+  });
+  describe("findMostSuitableRole", function(){
+    it("given a grouped roles object, find the maximum repeated role", function(){
+      expect(QuizRunner.findMostSuitableRole({ 1: [
+        { pid: '1', questionTypeId: '1', questionId: '1', roleId: '1', choiceText: 'Solving a puzzle.' },
+        { pid: '2', questionTypeId: '1', questionId: '1', roleId: '2', choiceText: 'Designing something beautiful.'}],
+         2: [
+        { pid: '3', questionTypeId: '1', questionId: '2', roleId: '1', choiceText: 'New programming techniques.' }
+      ]}))
+      .toBe('1');
+    });
+  });
+  describe("displayResults", function(){
+    beforeEach(function(){
+      EngineNameSpace.listOfChosenChoices = [{'pid': '1', 'questionTypeId' : '1', 'questionId' : '1', 'roleId': '1', 'choiceText': 'Solving a puzzle.'}, {'pid': '3','questionTypeId' : '1', 'questionId' : '2', 'roleId': '1', 'choiceText': 'New programming techniques.'} ];
+    });
+    it("displays the results on the results screen", function(){
+      QuizRunner.displayResults();
+      expect($('#result-text .roleText').html()).toBe('You are a builder by nature. You can become a great programmer.');
     });
   });
 });

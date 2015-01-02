@@ -1,7 +1,7 @@
 function choice(){
   this.pid = null;
   this.questionId = null;
-  this.questionType = null;
+  this.questionTypeId = null;
   this.roleId = null;
   this.choiceText = null;
 
