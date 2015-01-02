@@ -54,13 +54,15 @@ QuizRunner = {
   displayResults: function(){
     var groupByQuestionTypes = QuizRunner.groupChoicesByQuestionTypes();
     _.each(groupByQuestionTypes, function(value, key) {
+      var result = $("<div class='result'></div>");
       var qType = QuizRunner.getElementFromListById(EngineNameSpace.listOfQuestionTypes, key);
-      var qTypeElement = "<div class='qTypeText'>" + qType.ptype + "</div>";
+      var qTypeElement = "<div class='question-type-text'>" + qType.ptype + "</div>";
       var groupByRoles = QuizRunner.groupChoicesByRoles(value);
       var chosenRoleId = QuizRunner.findMostSuitableRole(groupByRoles);
       var chosenRole = QuizRunner.getElementFromListById(EngineNameSpace.listOfRoles, chosenRoleId);
-      var roleElement = "<div class='roleText'>" + chosenRole.roleText + "</div>";
-      $("#result-text").append(qTypeElement).append(roleElement);
+      var roleElement = "<div class='role-text'>" + chosenRole.roleText + "</div>";
+      result.append(qTypeElement).append(roleElement);
+      $("#result-text").append(result);
     });
   }
 };

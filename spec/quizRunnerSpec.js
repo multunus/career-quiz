@@ -27,7 +27,7 @@ describe("QuizRunner", function(){
       var choice_id = '1';
       var choice_text = 'Designer';
 
-      expect(QuizRunner.getRadioOptionContainer(question_id, choice_id, choice_text)).toBe("<div><input type='radio' value='"+ choice_id+ "' name='"+ question_id + "'>" + choice_text + "</div>");
+      expect(QuizRunner.getRadioOptionContainer(question_id, choice_id, choice_text)).toBe("<label class='choice'><input type='radio' value='"+ choice_id+ "' name='"+ question_id + "'>" + choice_text + "</label>");
     });
   });
 
@@ -48,7 +48,7 @@ describe("QuizRunner", function(){
     it("fills the questionnaire container with the choices", function(){
       QuizRunner.fillQuestionContainer('1');
       expect('#question-text').toHaveText('What makes you lose track of time?');
-      expect('#choices').toContainElement('div input');
+      expect('#choices').toContainElement('.choice');
     });
   });
 
@@ -127,7 +127,7 @@ describe("QuizRunner", function(){
     });
     it("displays the results on the results screen", function(){
       QuizRunner.displayResults();
-      expect($('#result-text .roleText').html()).toBe('You are a builder by nature. You can become a great programmer.');
+      expect($('#result-text .role-text').html()).toBe('You are a builder by nature. You can become a great programmer.');
     });
   });
 });
