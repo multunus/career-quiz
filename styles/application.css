@@ -1,3 +1,3 @@
-.error-field, .quiz-container, .results-container {
+#error-field, #quiz-container, #results-container {
   display: none;
 }
