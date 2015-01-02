@@ -20,3 +20,13 @@
   font-size: 1.2em;
   font-weight: 400;
 }
+
+#results-container .result{
+  margin: 10px 0;
+}
+
+#results-container .result .question-type-text,
+#results-container .result .role-text{
+  font-size: 1.1em;
+  line-height: 1.6em;
+}

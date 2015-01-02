@@ -127,7 +127,7 @@ describe("QuizRunner", function(){
     });
     it("displays the results on the results screen", function(){
       QuizRunner.displayResults();
-      expect($('#result-text .role-text').html()).toBe('You are a builder by nature. You can become a great programmer.');
+      expect($('#results-container .role-text').html()).toBe('You are a builder by nature. You can become a great programmer.');
     });
   });
 });
