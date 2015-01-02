@@ -32,11 +32,20 @@ QuizRunner = {
       $('#start-container').hide();
       $('#quiz-container').hide();
       $('#results-container').show();
+      //QuizRunner.displayResults();
     }
   },
   groupChoicesByQuestionTypes: function(){
     return _.groupBy(EngineNameSpace.listOfChosenChoices, function(choice){
       return choice.questionTypeId;
     });
+  },
+  groupChoicesByRoles: function(choices){
+    return _.groupBy(choices, function(choice){
+      return choice.roleId;
+    });
+  },
+  displayResults: function(){
+    
   }
 };
