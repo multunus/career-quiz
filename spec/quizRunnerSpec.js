@@ -70,11 +70,15 @@ describe("QuizRunner", function(){
         expect($('#start-container')).toBeHidden();
         expect($('#results-container')).toBeHidden();
         expect($('#quiz-container')).not.toBeHidden();
+        expect((EngineNameSpace.listOfChosenChoices).length).toBe(1);
 
         // Check for question text and options
         expect('#question-text').toHaveText('What makes you lose track of time?');
         expect("input[value='1']").toBeInDOM();
+
+        //2nd Question
         QuizRunner.showNextQuestion();
+        expect((EngineNameSpace.listOfChosenChoices).length).toBe(2);
         expect('#question-text').toHaveText('What are you curious about learning?');
         expect("input[value='1']").not.toBeInDOM();
         expect("input[value='3']").toBeInDOM();

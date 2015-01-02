@@ -24,7 +24,9 @@ QuizRunner = {
       $('#results-container').hide();
       $('#quiz-container').show();
       EngineNameSpace.currentQuestion += 1;
-      QuizRunner.fillQuestionContainer((EngineNameSpace.currentQuestion).toString());
+      var currQuestion = (EngineNameSpace.currentQuestion).toString();
+      QuizRunner.pushChosenChoice(currQuestion);
+      QuizRunner.fillQuestionContainer(currQuestion);
     }
     else {
       $('#start-container').hide();
