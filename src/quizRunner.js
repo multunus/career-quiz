@@ -54,7 +54,6 @@ QuizRunner = {
   displayResults: function(){
     var groupByQuestionTypes = QuizRunner.groupChoicesByQuestionTypes();
     _.each(groupByQuestionTypes, function(value, key) {
-      console.log(key, value);
       var qType = QuizRunner.getElementFromListById(EngineNameSpace.listOfQuestionTypes, key);
       var qTypeElement = "<div class='qTypeText'>" + qType.ptype + "</div>";
       var groupByRoles = QuizRunner.groupChoicesByRoles(value);
