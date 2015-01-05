@@ -99,10 +99,16 @@
 
 #cta-section{
   margin-top: 20px;
+  color: #7D7D7D;
+  font-size: 1.1em;
 }
 
 #results-section .heading{
   color: #BE1F3B;
+}
+
+#cta-section .heading{
+  font-size: 1.2em;
 }
 
 #results-section .result,
@@ -115,9 +121,14 @@
 }
 
 #cta-section .message{
-  font-size: 1.3em;
+  color: #898989;
 }
 
+#cta-section .message a{
+  color: #7D7D7D;
+  font-weight: bold;
+  text-decoration: underline;
+}
 .check-button{
   margin-top: 35px;
 }
