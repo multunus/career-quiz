@@ -11,7 +11,7 @@ QuizRunner = {
   fillQuestionContainer: function(questionId){
     $('#question-text').text(QuizRunner.getElementFromListById(EngineNameSpace['listOfQuestions'], questionId).questionText);
     $('#quiz-status').text('QUESTION ' + questionId + '/' + EngineNameSpace.listOfQuestions.length.toString());
-    var choices = QuizRunner.getChoicesForQuestion(questionId);
+    var choices = QuizRunner.shuffle(QuizRunner.getChoicesForQuestion(questionId));
     $('#choices').empty();
     _.each(choices, function(choice){ $("#choices").append(QuizRunner.getRadioOptionContainer(choice.questionId, choice.pid, choice.choiceText))})
   },
@@ -65,5 +65,24 @@ QuizRunner = {
       result.append(qTypeElement).append(roleElement);
       $("#results-section").append(result);
     });
+  },
+  //Added from http://stackoverflow.com/a/2450976
+  shuffle: function(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex ;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+
+    return array;
   }
 };
