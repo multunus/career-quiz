@@ -55,7 +55,7 @@ QuizRunner = {
   displayResults: function(){
     var groupByQuestionTypes = QuizRunner.groupChoicesByQuestionTypes();
     _.each(groupByQuestionTypes, function(value, key) {
-      var result = $("<div class='result'></div>");
+      var result = $("<li class='result'></li>");
       var qType = QuizRunner.getElementFromListById(EngineNameSpace.listOfQuestionTypes, key);
       var qTypeElement = "<span class='question-type-text'>" + qType.ptype + "</span>";
       var groupByRoles = QuizRunner.groupChoicesByRoles(value);
@@ -63,7 +63,7 @@ QuizRunner = {
       var chosenRole = QuizRunner.getElementFromListById(EngineNameSpace.listOfRoles, chosenRoleId);
       var roleElement = "<span class='role-text'>" + chosenRole.roleText + "</span>";
       result.append(qTypeElement).append(roleElement);
-      $("#results-container").append(result);
+      $("#results-section").append(result);
     });
   }
 };

@@ -4,6 +4,7 @@
 
 #quiz-header{
   font-size: 2em;
+  margin-bottom: 0;
 }
 
 #quiz-header .black{
@@ -13,6 +14,11 @@
 #quiz-header .red{
   font-style: italic;
   color: #BE1E3A;
+}
+
+.header-underline{
+  height: 1px;
+  width: 100%;
 }
 
 #questionnaire{
@@ -82,12 +88,53 @@
   margin-left: 50px;
 }
 
-#results-container .result{
-  margin: 10px 0;
+.heading{
+  text-transform: uppercase;
 }
 
-#results-container .result .question-type-text,
-#results-container .result .role-text{
-  font-size: 1.1em;
-  line-height: 1.6em;
+#results-section{
+  background-color: #F5F5F5;
+  padding: 20px 10px;
+}
+
+#cta-section{
+  margin-top: 20px;
+}
+
+#results-section .heading{
+  color: #BE1F3B;
+}
+
+#results-section .result,
+#cta-section .message{
+  margin: 5px 0 10px 0;
+}
+
+#results-section .result{
+  font-size: 1.5em;
+}
+
+#cta-section .message{
+  font-size: 1.3em;
+}
+
+.check-button{
+  margin-top: 35px;
+}
+
+.multunus-link{
+  border: 2px solid #BE1F3B;
+  color: #BE1F3B;
+  padding: 12px;
+  border-radius: 5px;
+  font-size: 1.2em;
+  background-color: white;
+}
+
+.multunus-link:hover{
+  color: #b01732;
+}
+
+.multunus-link:visited{
+  color: #b01732;
 }
