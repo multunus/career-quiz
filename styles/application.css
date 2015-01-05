@@ -2,23 +2,84 @@
   display: none;
 }
 
-#questionnaire{
-  margin-top: 40px;
+#quiz-header{
+  font-size: 2em;
 }
 
-#question-text{
+#quiz-header .black{
   font-weight: 600;
 }
 
+#quiz-header .red{
+  font-style: italic;
+  color: #BE1E3A;
+}
+
+#questionnaire{
+  margin-top: 40px;
+  margin-left: 25px;
+}
+
+#quiz-status{
+  color: #A9ADAC;
+}
+
+#question-text{
+  text-transform: uppercase;
+  font-size: 1.5em;
+}
+
+#choices{
+  margin-top: 10px;
+}
+
 #choices .choice input{
-  margin-right: 4px;
+  margin: 0 6px 0 10px;
 }
 
 #choices .choice{
   display: block;
-  line-height: 2em;
+  margin: 0;
+  background-color: #F1F1F1;
   font-size: 1.2em;
   font-weight: 400;
+  padding: 5px;
+}
+
+#choices .choice:nth-of-type(even){
+  background-color: #FAFAFA;
+}
+
+#choices .choice:hover{
+  background-color: #DEDEDE;
+}
+
+.quiz-button{
+  margin: 15px 10px 10px 50px;
+  width: 50px;
+  height: 35px;
+  background-color: #d22341;
+  border-radius: 2px;
+}
+
+.quiz-button:hover{
+  background-color: #b01732;
+}
+
+
+.right-arrow{
+  background: url("../img/arrow-right-white.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+  display: inline-block;
+  height: 13px;
+  margin-top: 11px;
+  margin-left: 13px;
+  width: 24px;
+}
+
+
+#error-field{
+  color: red;
+  margin-left: 50px;
 }
 
 #results-container .result{
