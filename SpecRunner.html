@@ -37,30 +37,42 @@
 </head>
 
 <body>
-  <div id="quiz-container">
-    <form id="questionnaire">
-      <div id="question-text">
-        
-      </div>
-      <div id="choices">
-        
-      </div>
-      <div>
-       <div id="submit-choice">Let's go</div>
-      </div>
-      <div id="error-field">Please select one of the options</div>
-    </form>
-  </div>
-  <div id="results-container">
-    <div id="result-text">
-      Ta da!! Results!!
+  <div id="recommendation-engine" class="container">
+    <div class="row">
+      <h1 id="quiz-header" class="col-md-12 col-sm-12">
+        <span class= "black">CAREER RECOMMENDATION</span>
+        <span class="red">QUIZ</span>
+      </h1>
     </div>
-  </div>
-  <div id="start-container">
-    <div id="start-text">
-      Chart your career in 5 minutes.
+    <div id="quiz-container" class="row">
+      <form id="questionnaire">
+        <div id="quiz-status">
+        </div>
+        <div id="question-text">
+        </div>
+        <div id="choices">
+        </div>
+        <div>
+          <div id="submit-choice" class="quiz-button">
+            <div class="right-arrow"></div>
+          </div>
+        </div>
+        <div id="error-field">Please select one of the options</div>
+      </form>
     </div>
-    <div id="start-here">Start</div>
+    <div id="results-container" class="row">
+      <h2 id="result-text">
+        Here's our Analysis!
+      </h2>
+    </div>
+    <div id="start-container" class="row center-block">
+      <h2 id="start-text" class="col-md-6 col-md-offset-3 col-sm-12">
+        Figure out your career in 5 minutes.
+      </h2>
+      <div id="start-button-container" class="col-md-6 col-md-offset-3 col-sm-12">
+        <button id="start-here" class="btn btn-lg btn-success">Start</button>
+      </div>
+    </div>
   </div>
 </body>
 </html>

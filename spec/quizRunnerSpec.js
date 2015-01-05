@@ -49,6 +49,7 @@ describe("QuizRunner", function(){
       QuizRunner.fillQuestionContainer('1');
       expect('#question-text').toHaveText('What makes you lose track of time?');
       expect('#choices').toContainElement('.choice');
+      expect('#quiz-status').toHaveText('QUESTION 1/2');
     });
   });
 

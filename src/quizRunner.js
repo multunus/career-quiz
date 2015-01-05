@@ -10,6 +10,7 @@ QuizRunner = {
   },
   fillQuestionContainer: function(questionId){
     $('#question-text').text(QuizRunner.getElementFromListById(EngineNameSpace['listOfQuestions'], questionId).questionText);
+    $('#quiz-status').text('QUESTION ' + questionId + '/' + EngineNameSpace.listOfQuestions.length.toString());
     var choices = QuizRunner.getChoicesForQuestion(questionId);
     $('#choices').empty();
     _.each(choices, function(choice){ $("#choices").append(QuizRunner.getRadioOptionContainer(choice.questionId, choice.pid, choice.choiceText))})
