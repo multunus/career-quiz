@@ -1,9 +1,6 @@
-function QuestionType(){
-  this.pid = null;
-  this.ptype = null;
-
-  this.initialize = function(pid, ptype){
-    this.pid = pid;
-    this.ptype = ptype;
-  };
+function QuestionType( options ){
+  var self = this;
+  Object.keys(options).forEach(function (key) {
+    self[key] = options[key] || null;
+  });
 };

@@ -46,62 +46,22 @@ describe("Utils", function(){
     });
   });
 
-  describe("createObject", function(){
-    it("creates questionType objects given a list of arguments", function(){
-      var argsList = [1, 'Profession'];
-      var ref = new QuestionType();
-      ref.initialize(argsList[0], argsList[1]);
-      actual = Utils.createObject('questionType', argsList);
-      expect(ref['pid']).toBe(actual['pid']);
-      expect(ref['ptype']).toBe(actual['ptype']);
-    });
-
-    it("creates question objects given a list of arguments", function(){
-      var argsList = [1, 1, 'What makes you lose track of time?'];
-      var ref = new Question();
-      ref.initialize(argsList[0], argsList[1], argsList[2]);
-      actual = Utils.createObject('question', argsList);
-      expect(ref['pid']).toBe(actual['pid']);
-      expect(ref['questionTypeId']).toBe(actual['questionTypeId']);
-      expect(ref['questionText']).toBe(actual['questionText']);
-    });
-
-    it("creates role objects given a list of arguments", function(){
-      var argsList = [1, 1, 'programmer', 'Programmer. You are quite a builder. You will find yourself creating great software with great practice.'];
-      var ref = new Role();
-      ref.initialize(argsList[0], argsList[1], argsList[2], argsList[3]);
-      actual = Utils.createObject('role', argsList);
-      expect(ref['pid']).toBe(actual['pid']);
-      expect(ref['questionTypeId']).toBe(actual['questionTypeId']);
-      expect(ref['roleName']).toBe(actual['roleName']);
-      expect(ref['roleText']).toBe(actual['roleText']);
-    });
-
-    it("creates choice objects given a list of arguments", function(){
-      var argsList = [1, 1, 1, 'Programming an elegant solution for a problem.']
-      var ref = new Choice();
-      ref.initialize(argsList[0], argsList[1], argsList[2], argsList[3]);
-      actual = Utils.createObject('choice', argsList);
-      expect(ref['pid']).toBe(actual['pid']);
-      expect(ref['questionId']).toBe(actual['questionId']);
-      expect(ref['roleId']).toBe(actual['roleId']);
-      expect(ref['choiceText']).toBe(actual['choiceText']);
-    });
-  });
-
   describe("createOptionsForObject", function(){
-    it("returns an Argument list iterating over entries", function(){
-      var ref = ['1', 'Profession'];
-      var actual = Utils.createOptionsForObject('questionType', 2, 2, entries);
-      expect(ref[0]).toBe(actual[0]);
-      expect(ref[1]).toBe(actual[1]);
+    it("returns an options object iterating over entries", function(){
+      Types = {
+        'questionType' : {
+          'listName' : 'listOfQuestionTypes',
+          'args' : ['pid', 'ptype']
+        }
+      };
+      var options = Utils.createOptionsForObject('questionType', 2, 2, entries);
+      expect(options.objectType).toBe('questionType');
+      expect(options['pid']).toBe('1');
     });
   });
 
   describe("populateList", function(){
     it("creates an object and pushes it to the appropriate list", function(){
-      var ref = new QuestionType();
-      ref.initialize(entries[2].gs$cell.$t, entries[3].gs$cell.$t);
       var actual = Utils.populateList('questionType', entries);
       expect(EngineNameSpace['listOfQuestionTypes'][0]['pid']).toEqual('1');
       expect(EngineNameSpace['listOfQuestionTypes'][0]['ptype']).toEqual('Profession');

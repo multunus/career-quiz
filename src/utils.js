@@ -2,48 +2,23 @@ Utils = {
   pushObjectToList : function(listType, givenObject){
     EngineNameSpace[listType].push(givenObject);
   },
-  createObject : function(objectType, argsList){
-    var q = null;
-    switch( objectType ){
-      case 'questionType':
-        q = new QuestionType();
-        q.initialize(argsList[0], argsList[1]);
-        break;
-
-      case 'question':
-        q = new Question();
-        q.initialize(argsList[0], argsList[1], argsList[2]);
-        break;
-
-      case 'role':
-        q = new Role();
-        q.initialize(argsList[0], argsList[1], argsList[2], argsList[3]);
-        break;
-
-      case 'choice':
-        q = new Choice();
-        q.initialize(argsList[0], argsList[1], argsList[2], argsList[3], argsList[4]);
-        break;
-    }
-    return q;
-  },
   createOptionsForObject : function(type, startIndex, numberOfArguments, entryList){
-    var argsList = [];
-    var options = [];
-    for (var j = startIndex; j < startIndex + numberOfArguments; j++){
-      options[Types[type][j]] = entryList[j].gs$cell.$t;
-      argsList.push(entryList[j].gs$cell.$t);
+    var options = {objectType: type};
+    for (var i = 0; i < numberOfArguments; i++){
+      positionInEntryList = startIndex + i;
+      options[Types[type]['args'][i]] = entryList[positionInEntryList].gs$cell.$t;
     }
-    return argsList;
+    return options;
   },
   populateList : function(type, entryList){
     Utils.readHeaders(type, entryList);
     var entriesLength = entryList.length;
     var listType = Utils.getListNameFromType(type);
     var numberOfArguments = Utils.getNumberOfArgumentsFromType(type);
+    objectFactory = new ObjectFactory();
 
     for (var i = numberOfArguments; i < entriesLength; i = i + numberOfArguments){
-      Utils.pushObjectToList(listType, Utils.createObject(type, Utils.createOptionsForObject(type, i, numberOfArguments, entryList)));
+      Utils.pushObjectToList(listType, objectFactory.createObject(Utils.createOptionsForObject(type, i, numberOfArguments, entryList)));
     }
   },
   getListNameFromType : function(type){
