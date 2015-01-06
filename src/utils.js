@@ -47,6 +47,6 @@ Utils = {
     return Types[type]['listName'];
   },
   getNumberOfArgumentsFromType: function(type){
-    return Types[type]['args'];
+    return Types[type]['numberOfArgs'];
   }
 }
