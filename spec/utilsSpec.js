@@ -1,10 +1,10 @@
 describe("Utils", function(){
   
   var entries = [
-      { gs$cell : { $t : 'pid' } },
-      { gs$cell : { $t : 'ptype' } },
-      { gs$cell : { $t : '1' } },
-      { gs$cell : { $t : 'Profession' } }
+      { gs$cell : { $t : 'pid', col: '1', row: '1' } },
+      { gs$cell : { $t : 'ptype', col: '2', row: '1' } },
+      { gs$cell : { $t : '1', col: '1', row: '2'  } },
+      { gs$cell : { $t : 'Profession', col: '2', row: '2' } }
     ];
 
   beforeEach(function() {
@@ -14,6 +14,28 @@ describe("Utils", function(){
       listOfChoices : [],
       listOfRoles : [],
       listOfChosenChoices : []
+    };
+    Types = {
+      'questionType' : {
+        'listName' : 'listOfQuestionTypes',
+        'args' : []
+      },
+      'question' : {
+        'listName' : 'listOfQuestions',
+        'args' : []
+      },
+      'role' : {
+        'listName' : 'listOfRoles',
+        'args' : []
+      },
+      'choice' : {
+        'listName' : 'listOfChoices',
+        'args' : []
+      },
+      'chosenChoice' : {
+        'listName' : 'listOfChosenChoices',
+        'args' : []
+      }
     };
   });
 
@@ -96,7 +118,15 @@ describe("Utils", function(){
   describe("getNumberOfArgumentsFromType", function(){
     it("get the number of Arguments for a question type", function(){
       var type  = 'questionType';
+      Utils.readHeaders(type, entries);
       expect(Utils.getNumberOfArgumentsFromType(type)).toBe(2);
+    });
+  });
+
+  describe("readHeaders", function(){
+    it('creates a list of the headers of a spreadsheet', function(){
+      Utils.readHeaders('questionType', entries);
+      expect(Types.questionType.args).toEqual(['pid', 'ptype']);
     });
   });
 });

@@ -10,22 +10,22 @@ var EngineNameSpace = {
 var Types = {
   'questionType' : {
     'listName' : 'listOfQuestionTypes',
-    'numberOfArgs' : 2
+    'args' : []
   },
   'question' : {
     'listName' : 'listOfQuestions',
-    'numberOfArgs' : 3
+    'args' : []
   },
   'role' : {
     'listName' : 'listOfRoles',
-    'numberOfArgs' : 4
+    'args' : []
   },
   'choice' : {
     'listName' : 'listOfChoices',
-    'numberOfArgs' : 5
+    'args' : []
   },
   'chosenChoice' : {
     'listName' : 'listOfChosenChoices',
-    'numberOfArgs' : 5
+    'args' : []
   }
 };

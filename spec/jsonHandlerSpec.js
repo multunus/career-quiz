@@ -8,16 +8,38 @@ describe("JsonHandler", function(){
       listOfRoles : [],
       listOfChosenChoices : []
     };
+    Types = {
+      'questionType' : {
+        'listName' : 'listOfQuestionTypes',
+        'args' : []
+      },
+      'question' : {
+        'listName' : 'listOfQuestions',
+        'args' : []
+      },
+      'role' : {
+        'listName' : 'listOfRoles',
+        'args' : []
+      },
+      'choice' : {
+        'listName' : 'listOfChoices',
+        'args' : []
+      },
+      'chosenChoice' : {
+        'listName' : 'listOfChosenChoices',
+        'args' : []
+      }
+    };
   });
 
   describe("createQuestionTypes", function(){
     var data = {
       feed: {
         entry : [
-          { gs$cell : { $t : 'pid' } },
-          { gs$cell : { $t : 'ptype' } },
-          { gs$cell : { $t : '1' } },
-          { gs$cell : { $t : 'Profession' } }
+          { gs$cell : { $t : 'pid', col: '1', row: '1' } },
+          { gs$cell : { $t : 'ptype', col: '2', row: '1' } },
+          { gs$cell : { $t : '1', col: '1', row: '2'  } },
+          { gs$cell : { $t : 'Profession', col: '1', row: '2' } }
         ]
       }
     };
@@ -33,14 +55,14 @@ describe("JsonHandler", function(){
     var data = {
       feed: {
         entry : [
-          { gs$cell : { $t : 'pid' } },
-          { gs$cell : { $t : 'questionTypeId' } },
-          { gs$cell : { $t : 'roleName' } },
-          { gs$cell : { $t : 'roleText' } },
-          { gs$cell : { $t : '1' } },
-          { gs$cell : { $t : '1' } },
-          { gs$cell : { $t : 'programmer' } },
-          { gs$cell : { $t : 'Programmer.' } }
+          { gs$cell : { $t : 'pid', col: '1', row: '1' } },
+          { gs$cell : { $t : 'questionTypeId', col: '2', row: '1' } },
+          { gs$cell : { $t : 'roleName', col: '3', row: '1' } },
+          { gs$cell : { $t : 'roleText', col: '4', row: '1' } },
+          { gs$cell : { $t : '1', col: '1', row: '2' } },
+          { gs$cell : { $t : '1', col: '2', row: '2' } },
+          { gs$cell : { $t : 'programmer', col: '3', row: '2' } },
+          { gs$cell : { $t : 'Programmer.', col: '4', row: '2' } }
         ]
       }
     };
@@ -58,12 +80,12 @@ describe("JsonHandler", function(){
     var data = {
       feed: {
         entry : [
-          { gs$cell : { $t : 'pid' } },
-          { gs$cell : { $t : 'questionTypeId' } },
-          { gs$cell : { $t : 'questionText' } },
-          { gs$cell : { $t : '1' } },
-          { gs$cell : { $t : '1' } },
-          { gs$cell : { $t : 'How do you spend your time?' } }
+          { gs$cell : { $t : 'pid', col: '1', row: '1' } },
+          { gs$cell : { $t : 'questionTypeId', col: '2', row: '1' } },
+          { gs$cell : { $t : 'questionText', col: '3', row: '1' } },
+          { gs$cell : { $t : '1', col: '1', row: '2' } },
+          { gs$cell : { $t : '1', col: '2', row: '2' } },
+          { gs$cell : { $t : 'How do you spend your time?', col: '3', row: '2' } }
         ]
       }
     };
@@ -80,16 +102,16 @@ describe("JsonHandler", function(){
     var data = {
       feed: {
         entry : [
-          { gs$cell : { $t : 'pid' } },
-          { gs$cell : { $t : 'questionTypeId' } },
-          { gs$cell : { $t : 'questionId' } },
-          { gs$cell : { $t : 'roleId' } },
-          { gs$cell : { $t : 'choiceText' } },
-          { gs$cell : { $t : '1' } },
-          { gs$cell : { $t : '1' } },
-          { gs$cell : { $t : '1' } },
-          { gs$cell : { $t : '1' } },
-          { gs$cell : { $t : 'You enjoy finding solutions to problems.' } }
+          { gs$cell : { $t : 'pid', col: '1', row: '1' } },
+          { gs$cell : { $t : 'questionTypeId', col: '2', row: '1' } },
+          { gs$cell : { $t : 'questionId', col: '3', row: '1' } },
+          { gs$cell : { $t : 'roleId', col: '4', row: '1' } },
+          { gs$cell : { $t : 'choiceText', col: '5', row: '1' } },
+          { gs$cell : { $t : '1', col: '1', row: '2' } },
+          { gs$cell : { $t : '1', col: '2', row: '2' } },
+          { gs$cell : { $t : '1', col: '3', row: '2' } },
+          { gs$cell : { $t : '1', col: '4', row: '2' } },
+          { gs$cell : { $t : 'You enjoy finding solutions to problems.', col: '5', row: '2' } }
         ]
       }
     };
