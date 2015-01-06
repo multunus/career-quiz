@@ -10,8 +10,8 @@ ObjectFactory.prototype.createObject = function( options ){
     case 'question':
       this.objectType = Question;
       break;
-    case 'role':
-      this.objectType = Role;
+    case 'answer':
+      this.objectType = Answer;
       break;
     case 'choice':
       this.objectType = Choice;

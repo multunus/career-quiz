@@ -1,14 +1,14 @@
 JsonHandler = {
-  createQuestionTypes : function(data){
+  createQuestionTypeObjects : function(data){
     Utils.populateList('questionType', data.feed.entry);
   },
-  createRoles : function(data){
-    Utils.populateList('role', data.feed.entry);
+  createAnswerObjects : function(data){
+    Utils.populateList('answer', data.feed.entry);
   },
-  createQuestions : function(data){
+  createQuestionObjectss : function(data){
     Utils.populateList('question', data.feed.entry);
   },
-  createChoices : function(data){
+  createChoiceObjectss : function(data){
     Utils.populateList('choice', data.feed.entry);
   }
 };

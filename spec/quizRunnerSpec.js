@@ -2,20 +2,20 @@ describe("QuizRunner", function(){
 
   beforeEach(function() {
     var questionType = {'pid' : '1', 'ptype' : 'Profession'};
-    var role1 = {'pid' : '1', 'questionTypeId' : '1', 'roleName': 'programmer', 'roleText': 'You are a builder by nature. You can become a great programmer.'};
-    var role2 = {'pid' : '2', 'questionTypeId' : '1', 'roleName': 'designer', 'roleText': 'You are an artist. You can become a great designer.'};
+    var answer1 = {'pid' : '1', 'questionTypeId' : '1', 'answerName': 'programmer', 'answerText': 'You are a builder by nature. You can become a great programmer.'};
+    var answer2 = {'pid' : '2', 'questionTypeId' : '1', 'answerName': 'designer', 'answerText': 'You are an artist. You can become a great designer.'};
     var question1 = {'pid' : '1', 'questionTypeId' : '1', 'questionText': 'What makes you lose track of time?'};
     var question2 = {'pid' : '2', 'questionTypeId' : '1', 'questionText': 'What are you curious about learning?'};
-    var choice1 = {'pid': '1', 'questionTypeId' : '1', 'questionId' : '1', 'roleId': '1', 'choiceText': 'Solving a puzzle.'};
-    var choice2 = {'pid': '2', 'questionTypeId' : '1', 'questionId' : '1', 'roleId': '2', 'choiceText': 'Designing something beautiful.'};
-    var choice3 = {'pid': '3', 'questionTypeId' : '1', 'questionId' : '2', 'roleId': '1', 'choiceText': 'New programming techniques.'};
-    var choice4 = {'pid': '4', 'questionTypeId' : '1', 'questionId' : '2', 'roleId': '2', 'choiceText': 'New design techniques.'};
+    var choice1 = {'pid': '1', 'questionTypeId' : '1', 'questionId' : '1', 'answerId': '1', 'choiceText': 'Solving a puzzle.'};
+    var choice2 = {'pid': '2', 'questionTypeId' : '1', 'questionId' : '1', 'answerId': '2', 'choiceText': 'Designing something beautiful.'};
+    var choice3 = {'pid': '3', 'questionTypeId' : '1', 'questionId' : '2', 'answerId': '1', 'choiceText': 'New programming techniques.'};
+    var choice4 = {'pid': '4', 'questionTypeId' : '1', 'questionId' : '2', 'answerId': '2', 'choiceText': 'New design techniques.'};
     
     EngineNameSpace = {
       listOfQuestionTypes : [questionType],
       listOfQuestions : [question1, question2],
       listOfChoices : [choice1, choice2, choice3, choice4],
-      listOfRoles : [role1, role2],
+      listOfAnswers : [answer1, answer2],
       listOfChosenChoices : [],
       currentQuestion: 0
     };
@@ -34,7 +34,7 @@ describe("QuizRunner", function(){
   describe("getChoicesForQuestion", function(){
     it("gets choices from a question", function(){
       var question_id = '1';
-      expect(QuizRunner.getChoicesForQuestion(question_id)).toEqual([{ pid: '1', questionTypeId: '1', questionId: '1', roleId: '1', choiceText: 'Solving a puzzle.' }, { pid: '2', questionTypeId: '1', questionId: '1', roleId: '2', choiceText: 'Designing something beautiful.' }]);
+      expect(QuizRunner.getChoicesForQuestion(question_id)).toEqual([{ pid: '1', questionTypeId: '1', questionId: '1', answerId: '1', choiceText: 'Solving a puzzle.' }, { pid: '2', questionTypeId: '1', questionId: '1', answerId: '2', choiceText: 'Designing something beautiful.' }]);
     });
   });
 
@@ -56,7 +56,7 @@ describe("QuizRunner", function(){
   describe("pushChosenChoice", function(){
     it("pushes the selected choice to the listOfChosenChoices", function(){
       QuizRunner.pushChosenChoice('1');
-      expect(EngineNameSpace.listOfChosenChoices).toEqual([{ pid: '1', questionTypeId: '1', questionId: '1', roleId: '1', choiceText: 'Solving a puzzle.' }]);
+      expect(EngineNameSpace.listOfChosenChoices).toEqual([{ pid: '1', questionTypeId: '1', questionId: '1', answerId: '1', choiceText: 'Solving a puzzle.' }]);
     });
   });
 
@@ -99,36 +99,36 @@ describe("QuizRunner", function(){
   });
   describe("groupChoicesByQuestionTypes", function(){
     beforeEach(function() {
-      EngineNameSpace.listOfChosenChoices = [{'pid': '1', 'questionTypeId' : '1', 'questionId' : '1', 'roleId': '1', 'choiceText': 'Solving a puzzle.'}, {'pid': '3','questionTypeId' : '1', 'questionId' : '2', 'roleId': '1', 'choiceText': 'New programming techniques.'} ];
+      EngineNameSpace.listOfChosenChoices = [{'pid': '1', 'questionTypeId' : '1', 'questionId' : '1', 'answerId': '1', 'choiceText': 'Solving a puzzle.'}, {'pid': '3','questionTypeId' : '1', 'questionId' : '2', 'answerId': '1', 'choiceText': 'New programming techniques.'} ];
     });
     it("groups choices by questionTypes", function(){
-      expect(QuizRunner.groupChoicesByQuestionTypes()).toEqual({ 1: [ { pid: '1', questionTypeId: '1', questionId: '1', roleId: '1', choiceText: 'Solving a puzzle.' }, { pid: '3', questionTypeId: '1', questionId: '2', roleId: '1', choiceText: 'New programming techniques.' } ]});
+      expect(QuizRunner.groupChoicesByQuestionTypes()).toEqual({ 1: [ { pid: '1', questionTypeId: '1', questionId: '1', answerId: '1', choiceText: 'Solving a puzzle.' }, { pid: '3', questionTypeId: '1', questionId: '2', answerId: '1', choiceText: 'New programming techniques.' } ]});
     });
   });
   describe("groupChoicesByRoles", function(){
-    it("given a list of choices, groups by roles", function(){
-      expect(QuizRunner.groupChoicesByRoles([ { pid: '1', questionTypeId: '1', questionId: '1', roleId: '1', choiceText: 'Solving a puzzle.' }, { pid: '3', questionTypeId: '1', questionId: '2', roleId: '1', choiceText: 'New programming techniques.' } ]))
-      .toEqual({ 1: [ { pid: '1', questionTypeId: '1', questionId: '1', roleId: '1', choiceText: 'Solving a puzzle.' }, { pid: '3', questionTypeId: '1', questionId: '2', roleId: '1', choiceText: 'New programming techniques.' } ]});
+    it("given a list of choices, groups by answers", function(){
+      expect(QuizRunner.groupChoicesByRoles([ { pid: '1', questionTypeId: '1', questionId: '1', answerId: '1', choiceText: 'Solving a puzzle.' }, { pid: '3', questionTypeId: '1', questionId: '2', answerId: '1', choiceText: 'New programming techniques.' } ]))
+      .toEqual({ 1: [ { pid: '1', questionTypeId: '1', questionId: '1', answerId: '1', choiceText: 'Solving a puzzle.' }, { pid: '3', questionTypeId: '1', questionId: '2', answerId: '1', choiceText: 'New programming techniques.' } ]});
     });
   });
   describe("findMostSuitableRole", function(){
-    it("given a grouped roles object, find the maximum repeated role", function(){
+    it("given a grouped answers object, find the maximum repeated answer", function(){
       expect(QuizRunner.findMostSuitableRole({ 1: [
-        { pid: '1', questionTypeId: '1', questionId: '1', roleId: '1', choiceText: 'Solving a puzzle.' },
-        { pid: '2', questionTypeId: '1', questionId: '1', roleId: '2', choiceText: 'Designing something beautiful.'}],
+        { pid: '1', questionTypeId: '1', questionId: '1', answerId: '1', choiceText: 'Solving a puzzle.' },
+        { pid: '2', questionTypeId: '1', questionId: '1', answerId: '2', choiceText: 'Designing something beautiful.'}],
          2: [
-        { pid: '3', questionTypeId: '1', questionId: '2', roleId: '1', choiceText: 'New programming techniques.' }
+        { pid: '3', questionTypeId: '1', questionId: '2', answerId: '1', choiceText: 'New programming techniques.' }
       ]}))
       .toBe('1');
     });
   });
   describe("displayResults", function(){
     beforeEach(function(){
-      EngineNameSpace.listOfChosenChoices = [{'pid': '1', 'questionTypeId' : '1', 'questionId' : '1', 'roleId': '1', 'choiceText': 'Solving a puzzle.'}, {'pid': '3','questionTypeId' : '1', 'questionId' : '2', 'roleId': '1', 'choiceText': 'New programming techniques.'} ];
+      EngineNameSpace.listOfChosenChoices = [{'pid': '1', 'questionTypeId' : '1', 'questionId' : '1', 'answerId': '1', 'choiceText': 'Solving a puzzle.'}, {'pid': '3','questionTypeId' : '1', 'questionId' : '2', 'answerId': '1', 'choiceText': 'New programming techniques.'} ];
     });
     it("displays the results on the results screen", function(){
       QuizRunner.displayResults();
-      expect($('#results-section .role-text').html()).toBe('You are a builder by nature. You can become a great programmer.');
+      expect($('#results-section .answer-text').html()).toBe('You are a builder by nature. You can become a great programmer.');
     });
   });
 });

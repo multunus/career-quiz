@@ -12,7 +12,7 @@ describe("Utils", function(){
       listOfQuestionTypes : [],
       listOfQuestions : [],
       listOfChoices : [],
-      listOfRoles : [],
+      listOfAnswers : [],
       listOfChosenChoices : []
     };
     Types = {
@@ -24,8 +24,8 @@ describe("Utils", function(){
         'listName' : 'listOfQuestions',
         'args' : []
       },
-      'role' : {
-        'listName' : 'listOfRoles',
+      'answer' : {
+        'listName' : 'listOfAnswers',
         'args' : []
       },
       'choice' : {

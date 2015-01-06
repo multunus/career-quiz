@@ -2,20 +2,20 @@ describe("Application", function(){
 
   beforeEach(function() {
     var questionType = {'pid' : '1', 'ptype' : 'Profession'};
-    var role1 = {'pid' : '1', 'questionTypeId' : '1', 'roleName': 'programmer', 'roleText': 'You are a builder by nature. You can become a great programmer.'};
-    var role2 = {'pid' : '2', 'questionTypeId' : '1', 'roleName': 'designer', 'roleText': 'You are an artist. You can become a great designer.'};
+    var answer1 = {'pid' : '1', 'questionTypeId' : '1', 'answerName': 'programmer', 'answerText': 'You are a builder by nature. You can become a great programmer.'};
+    var answer2 = {'pid' : '2', 'questionTypeId' : '1', 'answerName': 'designer', 'answerText': 'You are an artist. You can become a great designer.'};
     var question1 = {'pid' : '1', 'questionTypeId' : '1', 'questionText': 'What makes you lose track of time?'};
     var question2 = {'pid' : '2', 'questionTypeId' : '1', 'questionText': 'What are you curious about learning?'};
-    var choice1 = {'pid': '1', 'questionTypeId' : '1', 'questionId' : '1', 'roleId': '1', 'choiceText': 'Solving a puzzle.'};
-    var choice2 = {'pid': '2', 'questionTypeId' : '1', 'questionId' : '1', 'roleId': '2', 'choiceText': 'Designing something beautiful.'};
-    var choice3 = {'pid': '3', 'questionTypeId' : '1', 'questionId' : '2', 'roleId': '1', 'choiceText': 'New programming techniques.'};
-    var choice4 = {'pid': '4', 'questionTypeId' : '1', 'questionId' : '2', 'roleId': '2', 'choiceText': 'New design techniques.'};
+    var choice1 = {'pid': '1', 'questionTypeId' : '1', 'questionId' : '1', 'answerId': '1', 'choiceText': 'Solving a puzzle.'};
+    var choice2 = {'pid': '2', 'questionTypeId' : '1', 'questionId' : '1', 'answerId': '2', 'choiceText': 'Designing something beautiful.'};
+    var choice3 = {'pid': '3', 'questionTypeId' : '1', 'questionId' : '2', 'answerId': '1', 'choiceText': 'New programming techniques.'};
+    var choice4 = {'pid': '4', 'questionTypeId' : '1', 'questionId' : '2', 'answerId': '2', 'choiceText': 'New design techniques.'};
     
     EngineNameSpace = {
       listOfQuestionTypes : [questionType],
       listOfQuestions : [question1, question2],
       listOfChoices : [choice1, choice2, choice3, choice4],
-      listOfRoles : [role1, role2],
+      listOfAnswers : [answer1, answer2],
       listOfChosenChoices : [],
       currentQuestion: 0
     };

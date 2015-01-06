@@ -41,16 +41,16 @@ QuizRunner = {
   },
   groupChoicesByRoles: function(choices){
     return _.groupBy(choices, function(choice){
-      return choice.roleId;
+      return choice.answerId;
     });
   },
   findMostSuitableRole: function(groupByRoles){
-    var roleCounts = [];
+    var answerCounts = [];
     _.each(groupByRoles, function(value, key){
-      var roleData = {'roleId' : key, 'numberOfElements' : value.length};
-      roleCounts.push(roleData);
+      var answerData = {'answerId' : key, 'numberOfElements' : value.length};
+      answerCounts.push(answerData);
     });
-    return (_.max(roleCounts, function(role){ return role.numberOfElements})).roleId;
+    return (_.max(answerCounts, function(answer){ return answer.numberOfElements})).answerId;
   },
   displayResults: function(){
     var groupByQuestionTypes = QuizRunner.groupChoicesByQuestionTypes();
@@ -60,9 +60,9 @@ QuizRunner = {
       var qTypeElement = "<span class='question-type-text'>" + qType.displayText + "</span>";
       var groupByRoles = QuizRunner.groupChoicesByRoles(value);
       var chosenRoleId = QuizRunner.findMostSuitableRole(groupByRoles);
-      var chosenRole = QuizRunner.getElementFromListById(EngineNameSpace.listOfRoles, chosenRoleId);
-      var roleElement = "<span class='role-text'>" + chosenRole.roleText + "</span>";
-      result.append(qTypeElement).append(roleElement);
+      var chosenRole = QuizRunner.getElementFromListById(EngineNameSpace.listOfAnswers, chosenRoleId);
+      var answerElement = "<span class='answer-text'>" + chosenRole.answerText + "</span>";
+      result.append(qTypeElement).append(answerElement);
       $("#results-section").append(result);
     });
   },

@@ -22,14 +22,14 @@ describe("ObjectFactory", function(){
       expect(question.ptype).toBe('profession');
     });
 
-    it("Role class", function(){
-      var role = objectFactory.createObject({
-                          objectType : 'role',
+    it("Answer class", function(){
+      var answer = objectFactory.createObject({
+                          objectType : 'answer',
                           pid: '1',
                           ptype: 'profession'});
-      expect(role instanceof Role).toBe(true);
-      expect(role['pid']).toBe('1');
-      expect(role.ptype).toBe('profession');
+      expect(answer instanceof Answer).toBe(true);
+      expect(answer['pid']).toBe('1');
+      expect(answer.ptype).toBe('profession');
     });
 
     it("Choice class", function(){
