@@ -31,16 +31,16 @@
 }
 
 #question-text{
-  text-transform: uppercase;
-  font-size: 1.5em;
+  font-size: 1.7em;
 }
 
 #choices{
   margin-top: 10px;
+  border: 1px solid #DFDFDF;
 }
 
 #choices .choice input{
-  margin: 0 6px 0 10px;
+  margin: 0 10px 0 0px;
 }
 
 #choices .choice{
@@ -49,7 +49,7 @@
   background-color: #F1F1F1;
   font-size: 1.2em;
   font-weight: 400;
-  padding: 5px;
+  padding: 15px;
 }
 
 #choices .choice:nth-of-type(even){
@@ -60,39 +60,9 @@
   background-color: #DEDEDE;
 }
 
-.quiz-button{
-  margin: 15px 10px 10px 50px;
-  background-color: #d22341;
-  border-radius: 2px;
-  cursor: pointer;
-  color: white;
-}
-
-.quiz-button:hover{
-  background-color: #b01732;
-}
-
 #submit-choice{
-  width: 50px;
-  height: 35px;
+  margin-top: 20px;
 }
-
-#start-here{
-  width: 120px;
-  height: 50px;
-  font-size: 20px;
-  padding: 10px;
-}
-
-.right-arrow{
-  background: url("../img/arrow-right-white.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-  display: inline-block;
-  height: 13px;
-  margin-top: 11px;
-  margin-left: 13px;
-  width: 24px;
-}
-
 
 #error-field{
   color: red;
@@ -159,4 +129,9 @@
 
 .multunus-link:visited{
   color: #b01732;
+}
+
+.btn.btn-red {
+  color: #FFF;
+  background-color: #D9534F;
 }
