@@ -1,6 +1,6 @@
 JsonHandler = {
   createQuestionTypes : function(data){
-   Utils.populateList('questionType', data.feed.entry);
+    Utils.populateList('questionType', data.feed.entry);
   },
   createRoles : function(data){
     Utils.populateList('role', data.feed.entry);

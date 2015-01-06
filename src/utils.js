@@ -27,9 +27,11 @@ Utils = {
     }
     return q;
   },
-  createArgsList : function(startIndex, numberOfArguments, entryList){
+  createOptionsForObject : function(type, startIndex, numberOfArguments, entryList){
     var argsList = [];
+    var options = [];
     for (var j = startIndex; j < startIndex + numberOfArguments; j++){
+      options[Types[type][j]] = entryList[j].gs$cell.$t;
       argsList.push(entryList[j].gs$cell.$t);
     }
     return argsList;
@@ -41,7 +43,7 @@ Utils = {
     var numberOfArguments = Utils.getNumberOfArgumentsFromType(type);
 
     for (var i = numberOfArguments; i < entriesLength; i = i + numberOfArguments){
-      Utils.pushObjectToList(listType, Utils.createObject(type, Utils.createArgsList(i, numberOfArguments, entryList)));
+      Utils.pushObjectToList(listType, Utils.createObject(type, Utils.createOptionsForObject(type, i, numberOfArguments, entryList)));
     }
   },
   getListNameFromType : function(type){
@@ -51,6 +53,7 @@ Utils = {
     return Types[type]['args'].length;
   },
   readHeaders : function(type, entryList){
+    Types[type]['args'] = [];
     var i = 0;
     while(entryList[i].gs$cell.row < 2){
       Types[type]['args'].push(entryList[i].gs$cell.$t);

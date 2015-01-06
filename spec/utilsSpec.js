@@ -89,10 +89,10 @@ describe("Utils", function(){
     });
   });
 
-  describe("createArgsList", function(){
+  describe("createOptionsForObject", function(){
     it("returns an Argument list iterating over entries", function(){
       var ref = ['1', 'Profession'];
-      var actual = Utils.createArgsList(2, 2, entries);
+      var actual = Utils.createOptionsForObject('questionType', 2, 2, entries);
       expect(ref[0]).toBe(actual[0]);
       expect(ref[1]).toBe(actual[1]);
     });
