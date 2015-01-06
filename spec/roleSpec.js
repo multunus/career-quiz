@@ -1,8 +1,8 @@
-describe("role", function() {
+describe("Role", function() {
   var r;
 
   beforeEach(function() {
-    r = new role();
+    r = new Role();
   });
 
   describe("initialize", function(){

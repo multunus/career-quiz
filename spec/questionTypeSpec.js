@@ -1,8 +1,8 @@
-describe("questionType", function() {
+describe("QuestionType", function() {
   var qType;
 
   beforeEach(function() {
-    qType = new questionType();
+    qType = new QuestionType();
   });
 
   describe("initialize", function(){

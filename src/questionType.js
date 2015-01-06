@@ -1,4 +1,4 @@
-function questionType(){
+function QuestionType(){
   this.pid = null;
   this.ptype = null;
 

@@ -1,8 +1,8 @@
-describe("choice", function() {
+describe("Choice", function() {
   var c;
 
   beforeEach(function() {
-    c = new choice();
+    c = new Choice();
   });
 
   describe("initialize", function(){

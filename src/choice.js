@@ -1,4 +1,4 @@
-function choice(){
+function Choice(){
   this.pid = null;
   this.questionId = null;
   this.questionTypeId = null;

@@ -1,4 +1,4 @@
-describe("application", function(){
+describe("Application", function(){
 
   beforeEach(function() {
     var questionType = {'pid' : '1', 'ptype' : 'Profession'};

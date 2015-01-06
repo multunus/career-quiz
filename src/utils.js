@@ -6,22 +6,22 @@ Utils = {
     var q = null;
     switch( objectType ){
       case 'questionType':
-        q = new questionType();
+        q = new QuestionType();
         q.initialize(argsList[0], argsList[1]);
         break;
 
       case 'question':
-        q = new question();
+        q = new Question();
         q.initialize(argsList[0], argsList[1], argsList[2]);
         break;
 
       case 'role':
-        q = new role();
+        q = new Role();
         q.initialize(argsList[0], argsList[1], argsList[2], argsList[3]);
         break;
 
       case 'choice':
-        q = new choice();
+        q = new Choice();
         q.initialize(argsList[0], argsList[1], argsList[2], argsList[3], argsList[4]);
         break;
     }

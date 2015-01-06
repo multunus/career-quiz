@@ -27,7 +27,7 @@ describe("Utils", function(){
   describe("createObject", function(){
     it("creates questionType objects given a list of arguments", function(){
       var argsList = [1, 'Profession'];
-      var ref = new questionType();
+      var ref = new QuestionType();
       ref.initialize(argsList[0], argsList[1]);
       actual = Utils.createObject('questionType', argsList);
       expect(ref['pid']).toBe(actual['pid']);
@@ -36,7 +36,7 @@ describe("Utils", function(){
 
     it("creates question objects given a list of arguments", function(){
       var argsList = [1, 1, 'What makes you lose track of time?'];
-      var ref = new question();
+      var ref = new Question();
       ref.initialize(argsList[0], argsList[1], argsList[2]);
       actual = Utils.createObject('question', argsList);
       expect(ref['pid']).toBe(actual['pid']);
@@ -46,7 +46,7 @@ describe("Utils", function(){
 
     it("creates role objects given a list of arguments", function(){
       var argsList = [1, 1, 'programmer', 'Programmer. You are quite a builder. You will find yourself creating great software with great practice.'];
-      var ref = new role();
+      var ref = new Role();
       ref.initialize(argsList[0], argsList[1], argsList[2], argsList[3]);
       actual = Utils.createObject('role', argsList);
       expect(ref['pid']).toBe(actual['pid']);
@@ -57,7 +57,7 @@ describe("Utils", function(){
 
     it("creates choice objects given a list of arguments", function(){
       var argsList = [1, 1, 1, 'Programming an elegant solution for a problem.']
-      var ref = new choice();
+      var ref = new Choice();
       ref.initialize(argsList[0], argsList[1], argsList[2], argsList[3]);
       actual = Utils.createObject('choice', argsList);
       expect(ref['pid']).toBe(actual['pid']);
@@ -78,7 +78,7 @@ describe("Utils", function(){
 
   describe("populateList", function(){
     it("creates an object and pushes it to the appropriate list", function(){
-      var ref = new questionType();
+      var ref = new QuestionType();
       ref.initialize(entries[2].gs$cell.$t, entries[3].gs$cell.$t);
       var actual = Utils.populateList('questionType', entries);
       expect(EngineNameSpace['listOfQuestionTypes'][0]['pid']).toEqual('1');

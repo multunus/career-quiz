@@ -1,4 +1,4 @@
-function question(){
+function Question(){
   this.pid = null;
   this.questionTypeId = null;
   this.questionText = null;

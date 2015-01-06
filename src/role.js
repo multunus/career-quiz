@@ -1,4 +1,4 @@
-function role(){
+function Role(){
   this.pid = null;
   this.questionTypeId = null;
   this.roleName = null;
