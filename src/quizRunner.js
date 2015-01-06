@@ -57,7 +57,7 @@ QuizRunner = {
     _.each(groupByQuestionTypes, function(value, key) {
       var result = $("<li class='result'></li>");
       var qType = QuizRunner.getElementFromListById(EngineNameSpace.listOfQuestionTypes, key);
-      var qTypeElement = "<span class='question-type-text'>" + qType.ptype + "</span>";
+      var qTypeElement = "<span class='question-type-text'>" + qType.displayText + "</span>";
       var groupByRoles = QuizRunner.groupChoicesByRoles(value);
       var chosenRoleId = QuizRunner.findMostSuitableRole(groupByRoles);
       var chosenRole = QuizRunner.getElementFromListById(EngineNameSpace.listOfRoles, chosenRoleId);
