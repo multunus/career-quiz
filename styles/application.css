@@ -69,23 +69,9 @@
   margin-left: 50px;
 }
 
-.heading{
-  text-transform: uppercase;
-}
-
-#results-section{
-  background-color: #F5F5F5;
-  padding: 20px 10px;
-}
-
 #cta-section{
-  margin-top: 20px;
   color: #7D7D7D;
   font-size: 1.1em;
-}
-
-#results-section .heading{
-  color: #BE1F3B;
 }
 
 #cta-section .heading{
@@ -134,4 +120,10 @@
 .btn.btn-red {
   color: #FFF;
   background-color: #D9534F;
+}
+
+.jumbotron {
+  background-color: rgba(249, 249, 249, 0.63);
+  border: 1px solid rgba(249, 249, 249, 0.8);
+  color: rgba(0, 0, 0, 0.6);
 }
