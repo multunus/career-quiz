@@ -105,15 +105,15 @@ describe("QuizRunner", function(){
       expect(QuizRunner.groupChoicesByQuestionTypes()).toEqual({ 1: [ { pid: '1', questionTypeId: '1', questionId: '1', answerId: '1', choiceText: 'Solving a puzzle.' }, { pid: '3', questionTypeId: '1', questionId: '2', answerId: '1', choiceText: 'New programming techniques.' } ]});
     });
   });
-  describe("groupChoicesByRoles", function(){
+  describe("groupChoicesByAnswers", function(){
     it("given a list of choices, groups by answers", function(){
-      expect(QuizRunner.groupChoicesByRoles([ { pid: '1', questionTypeId: '1', questionId: '1', answerId: '1', choiceText: 'Solving a puzzle.' }, { pid: '3', questionTypeId: '1', questionId: '2', answerId: '1', choiceText: 'New programming techniques.' } ]))
+      expect(QuizRunner.groupChoicesByAnswers([ { pid: '1', questionTypeId: '1', questionId: '1', answerId: '1', choiceText: 'Solving a puzzle.' }, { pid: '3', questionTypeId: '1', questionId: '2', answerId: '1', choiceText: 'New programming techniques.' } ]))
       .toEqual({ 1: [ { pid: '1', questionTypeId: '1', questionId: '1', answerId: '1', choiceText: 'Solving a puzzle.' }, { pid: '3', questionTypeId: '1', questionId: '2', answerId: '1', choiceText: 'New programming techniques.' } ]});
     });
   });
-  describe("findMostSuitableRole", function(){
+  describe("findMostSuitableAnswer", function(){
     it("given a grouped answers object, find the maximum repeated answer", function(){
-      expect(QuizRunner.findMostSuitableRole({ 1: [
+      expect(QuizRunner.findMostSuitableAnswer({ 1: [
         { pid: '1', questionTypeId: '1', questionId: '1', answerId: '1', choiceText: 'Solving a puzzle.' },
         { pid: '2', questionTypeId: '1', questionId: '1', answerId: '2', choiceText: 'Designing something beautiful.'}],
          2: [
