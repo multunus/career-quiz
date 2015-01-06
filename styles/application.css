@@ -78,6 +78,10 @@
   font-size: 1.2em;
 }
 
+#results-container .heading{
+  color: #be1f3b;
+}
+
 #results-section .result,
 #cta-section .message{
   margin: 5px 0 10px 0;
