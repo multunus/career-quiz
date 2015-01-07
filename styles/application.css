@@ -76,55 +76,19 @@
 }
 
 #cta-section{
-  color: #7D7D7D;
-  font-size: 1.1em;
-}
-
-#cta-section .heading{
-  font-size: 1.2em;
+  color: #be1f3b;
 }
 
 #results-container .heading{
   color: #be1f3b;
 }
 
-#results-section .result,
-#cta-section .message{
+#results-section .result{
   margin: 5px 0 10px 0;
 }
 
 #results-section .result{
   font-size: 1.5em;
-}
-
-#cta-section .message{
-  color: #898989;
-}
-
-#cta-section .message a{
-  color: #7D7D7D;
-  font-weight: bold;
-  text-decoration: underline;
-}
-.check-button{
-  margin-top: 35px;
-}
-
-.multunus-link{
-  border: 2px solid #BE1F3B;
-  color: #BE1F3B;
-  padding: 12px;
-  border-radius: 5px;
-  font-size: 1.2em;
-  background-color: white;
-}
-
-.multunus-link:hover{
-  color: #b01732;
-}
-
-.multunus-link:visited{
-  color: #b01732;
 }
 
 .btn.btn-red {
@@ -144,4 +108,33 @@
   background-color: rgba(249, 249, 249, 0.63);
   border: 1px solid rgba(249, 249, 249, 0.8);
   color: rgba(0, 0, 0, 0.6);
+}
+
+.nav-facebook {
+  width: 320px;
+  height: 45px;
+  text-decoration: none;
+  background: linear-gradient(to bottom, #4569aa 0%, #3a588c 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+  border: 1px solid #39578b;
+  border-radius: 4px;
+  box-shadow: 0 1px 0 0 rgba(101, 130, 184, 1) inset;
+  margin-right: 1.4%;
+  margin-bottom: 30px;
+}
+
+.social-text {
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.social-text p {
+  color: #fff;
+  display: inline;
+  font-size: 16px;
+  line-height: 16px;
+  padding-left: 5px;
+  text-decoration: none;
+  position: relative;
+  top: 2px;
 }

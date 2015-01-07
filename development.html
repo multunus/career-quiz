@@ -38,15 +38,21 @@
           <ol id="results-section"></ol>
         </div>
         <div id="cta-section" class="col-md-12 col-sm-12">
-          <h3>How did we figure that out?</h3>
-          <div class="message">To make sure you get the <a href="http://www.dudeonbench.com/" title="Dude on Bench">complimentary career guide</a>, click on the confirmation link we emailed you.</div>
-          <div class="check-button">
-            <a href="http://www.multunus.com/"  class="multunus-link" title="Multunus Software">Check us out</a>
+          <div id="fb-root"></div>
+          <h3>Share the quiz with your friends </h3>
+          <div class="col-md-4 col-sm-8 col-xs-10">
+            <button id="fb-share" class="nav-facebook">
+              <div class="social-text">
+                <span class="facebook-icon social-icon">
+                  <img alt="Share on Facebook" src="img/fb-icon.png">
+                </span>
+                <p>Share on Facebook</p>
+              </div>
+            </button>
           </div>
         </div>
       </div>
     </div>
-
     <script src="lib/jquery/jquery-1.11.2.min.js"></script>
     <script src="lib/underscore/underscore-min.js"></script>
     <script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
@@ -64,5 +70,22 @@
     <script src="https://spreadsheets.google.com/feeds/cells/1to58wg_r4R_oie7IqYPzsqMglIKkDYCh4peNhCZ6xm4/2/public/values?alt=json-in-script&callback=JsonHandler.createAnswerObjects"></script>
     <script src="https://spreadsheets.google.com/feeds/cells/1to58wg_r4R_oie7IqYPzsqMglIKkDYCh4peNhCZ6xm4/3/public/values?alt=json-in-script&callback=JsonHandler.createQuestionObjects"></script>
     <script src="https://spreadsheets.google.com/feeds/cells/1to58wg_r4R_oie7IqYPzsqMglIKkDYCh4peNhCZ6xm4/4/public/values?alt=json-in-script&callback=JsonHandler.createChoiceObjects"></script>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1530095703933137',
+          xfbml      : true,
+          version    : 'v2.2'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
   </body>
 </html>
