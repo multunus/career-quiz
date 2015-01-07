@@ -60,6 +60,12 @@
   background-color: #DEDEDE;
 }
 
+.choice-radio-button, .choice-text{
+  display: table-cell;
+  top: 50%;
+  vertical-align: middle;
+}
+
 #submit-choice{
   margin-top: 20px;
 }
@@ -127,6 +133,7 @@
   font-size: 1.2em;
   height: 40px;
   width: 80px;
+  margin-bottom: 30px;
 }
 
 .btn.btn-red:hover{

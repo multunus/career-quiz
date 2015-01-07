@@ -1,6 +1,6 @@
 QuizRunner = {
   getRadioOptionContainer: function(name, value, text){
-    return "<label class='choice'><input type='radio' value='" + value + "' name='" + name + "'>" + text + "</label>";
+    return "<label class='choice'><div class='choice-radio-button'><input type='radio' value='" + value + "' name='" + name + "'></div><div class='choice-text'>" + text + "</div></label>";
   },
   getChoicesForQuestion: function(questionId){
     return _.filter(EngineNameSpace.listOfChoices, function(choice){ if ( choice.questionId == questionId ) { return choice;} });

@@ -27,7 +27,8 @@ describe("QuizRunner", function(){
       var choice_id = '1';
       var choice_text = 'Designer';
 
-      expect(QuizRunner.getRadioOptionContainer(question_id, choice_id, choice_text)).toBe("<label class='choice'><input type='radio' value='"+ choice_id+ "' name='"+ question_id + "'>" + choice_text + "</label>");
+      expect(QuizRunner.getRadioOptionContainer(question_id, choice_id, choice_text))
+      .toBe("<label class='choice'><div class='choice-radio-button'><input type='radio' value='"+ choice_id+ "' name='"+ question_id + "'></div><div class='choice-text'>" + choice_text + "</div></label>");
     });
   });
 
