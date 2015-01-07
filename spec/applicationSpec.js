@@ -21,19 +21,14 @@ describe("Application", function(){
     };
   });
 
-  describe("on click of start-here button", function(){
+  describe("on load", function(){
     beforeEach(function(){
-      $("#start-container").show();
       $("#quiz-container").hide();
       $("#results-container").hide();
-      EngineNameSpace.currentQuestion = 0;
     });
     it("hides start container, shows quiz", function(){
-      var spyEvent = spyOnEvent('#start-here', 'click');
-      $("#start-here").click();
-      expect('click').toHaveBeenTriggeredOn('#start-here');
-      expect(spyEvent).toHaveBeenTriggered();
-      expect($("#start-container")).toBeHidden();
+      EngineNameSpace.currentQuestion = 0;
+      QuizRunner.showNextQuestion();
       expect($("#results-container")).toBeHidden();
       expect($("#quiz-container")).not.toBeHidden();
       expect(EngineNameSpace.currentQuestion).toBe(1);
@@ -43,7 +38,6 @@ describe("Application", function(){
 
   describe("on click of submit-choice button", function(){
     beforeEach(function(){
-      $("#start-container").hide();
       $("#quiz-container").show();
       $("#results-container").hide();
       $("#error-field").hide();
@@ -56,7 +50,6 @@ describe("Application", function(){
         $("#submit-choice").click();
         expect('click').toHaveBeenTriggeredOn('#submit-choice');
         expect(spySubmitChoice).toHaveBeenTriggered();
-        expect($("#start-container")).toBeHidden();
         expect($("#results-container")).toBeHidden();
         expect($("#quiz-container")).not.toBeHidden();
         expect($("#error-field")).not.toBeHidden();
@@ -73,7 +66,6 @@ describe("Application", function(){
           $("#submit-choice").click();
           expect('click').toHaveBeenTriggeredOn('#submit-choice');
           expect(spySubmitChoice).toHaveBeenTriggered();
-          expect($("#start-container")).toBeHidden();
           expect($("#results-container")).toBeHidden();
           expect($("#quiz-container")).not.toBeHidden();
           expect(EngineNameSpace.currentQuestion).toBe(2);
@@ -93,7 +85,6 @@ describe("Application", function(){
           expect('click').toHaveBeenTriggeredOn('#submit-choice');
           expect(spySubmitChoice).toHaveBeenTriggered();
           expect(EngineNameSpace.currentQuestion).toBe(2);
-          expect($("#start-container")).toBeHidden();
           expect($("#quiz-container")).toBeHidden();
           expect($("#results-container")).not.toBeHidden();
         });

@@ -1,9 +1,6 @@
 $(document).ready( function(){
-  $('#start-here').click(function(event){
-    event.preventDefault();
-    EngineNameSpace.currentQuestion = 0;
-    QuizRunner.showNextQuestion();
-  });
+  EngineNameSpace.currentQuestion = 0;
+  QuizRunner.showNextQuestion();
 
   $('#submit-choice').click(function(event){
     event.preventDefault();

@@ -68,7 +68,6 @@ describe("QuizRunner", function(){
       it("displays next question", function(){
         QuizRunner.showNextQuestion();
         // Check for hide and show stuff
-        expect($('#start-container')).toBeHidden();
         expect($('#results-container')).toBeHidden();
         expect($('#quiz-container')).not.toBeHidden();
 
@@ -91,7 +90,6 @@ describe("QuizRunner", function(){
       it("displays results", function(){
         QuizRunner.showNextQuestion();
         // Check for hide and show stuff
-        expect($('#start-container')).toBeHidden();
         expect($('#results-container')).not.toBeHidden();
         expect($('#quiz-container')).toBeHidden();
       });
