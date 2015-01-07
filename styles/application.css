@@ -66,7 +66,7 @@
 
 #error-field{
   color: red;
-  margin-left: 50px;
+  font-size: 1.2em;
 }
 
 #cta-section{
@@ -124,6 +124,13 @@
 .btn.btn-red {
   color: #FFF;
   background-color: #D9534F;
+  font-size: 1.2em;
+  height: 40px;
+  width: 80px;
+}
+
+.btn.btn-red:hover{
+  background-color: #BE1F3B;
 }
 
 .jumbotron {
