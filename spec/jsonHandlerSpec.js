@@ -91,7 +91,7 @@ describe("JsonHandler", function(){
     };
     
     it("should create a list of objects in listOfQuestions", function(){
-      JsonHandler.createQuestionObjectss(data);
+      JsonHandler.createQuestionObjects(data);
       expect(EngineNameSpace['listOfQuestions'][0]['pid']).toEqual('1');
       expect(EngineNameSpace['listOfQuestions'][0]['questionTypeId']).toEqual('1');
       expect(EngineNameSpace['listOfQuestions'][0]['questionText']).toEqual('How do you spend your time?');
@@ -117,7 +117,7 @@ describe("JsonHandler", function(){
     };
     
     it("should create a list of objects in listOfChoices", function(){
-      JsonHandler.createChoiceObjectss(data);
+      JsonHandler.createChoiceObjects(data);
       expect(EngineNameSpace['listOfChoices'][0]['pid']).toEqual('1');
       expect(EngineNameSpace['listOfChoices'][0]['questionTypeId']).toEqual('1');
       expect(EngineNameSpace['listOfChoices'][0]['questionId']).toEqual('1');

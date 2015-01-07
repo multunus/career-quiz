@@ -126,10 +126,10 @@ JsonHandler = {
   createAnswerObjects : function(data){
     Utils.populateList('answer', data.feed.entry);
   },
-  createQuestionObjectss : function(data){
+  createQuestionObjects : function(data){
     Utils.populateList('question', data.feed.entry);
   },
-  createChoiceObjectss : function(data){
+  createChoiceObjects : function(data){
     Utils.populateList('choice', data.feed.entry);
   }
 };
