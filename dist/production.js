@@ -241,7 +241,7 @@ $(document).ready( function(){
   $('#fb-share').click(function(){
     FB.ui({
       method: 'share',
-      href: 'http://www.dudeonbench.com/quiz'
+      href: 'http://www.dudeonbench.com/careerquiz'
     }, function(response){});
   });
 });
