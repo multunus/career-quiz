@@ -70,10 +70,6 @@
   font-size: 1.2em;
 }
 
-#cta-section{
-  color: #be1f3b;
-}
-
 #results-container .heading{
   color: #be1f3b;
 }
@@ -105,6 +101,14 @@
   color: rgba(0, 0, 0, 0.6);
 }
 
+#cta-section{
+  color: #717171;
+}
+
+.cta-body-text{
+  font-size: 1.2em;
+}
+
 .nav-facebook {
   width: 320px;
   height: 45px;
@@ -132,4 +136,36 @@
   text-decoration: none;
   position: relative;
   top: 2px;
+}
+
+.cta-red{
+  color: #be1f3b;
+}
+
+.cta-text-section{
+  background-color: rgba(249, 249, 249, 0.63);
+  border: 1px solid rgba(170, 170, 170, 0.5);
+  border-radius: 6px;
+  margin: 5px 0;
+  padding: 10px 15px;
+}
+
+.multunus-link{
+  color: #be1f3b;
+}
+
+.multunus-link:hover{
+  color: #D9534F;
+}
+
+.cta-footer{
+  margin-bottom: 20px;
+}
+
+.jumbotron{
+  border: 1px solid rgba(170, 170, 170, 0.5);
+}
+
+.fb-share-section{
+  margin: 6px 0;
 }
