@@ -7,10 +7,6 @@
   margin-bottom: 0;
 }
 
-#quiz-header .black{
-  font-weight: 600;
-}
-
 #quiz-header .red{
   font-style: italic;
   color: #BE1E3A;
@@ -22,8 +18,7 @@
 }
 
 #questionnaire{
-  margin-top: 40px;
-  margin-left: 25px;
+  margin: 20px 0;
 }
 
 #quiz-status{
@@ -97,7 +92,7 @@
   font-size: 1.2em;
   height: 40px;
   width: 80px;
-  margin-bottom: 30px;
+  margin-bottom: 3px;
 }
 
 .btn.btn-red:hover{
