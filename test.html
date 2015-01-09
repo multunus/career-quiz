@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Software Career Quiz</title>
-    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="styles/application.css">
   </head>
 
@@ -78,21 +78,20 @@
         </div>
       </div>
     </div>
-    <script src="lib/jquery/jquery-1.11.2.min.js"></script>
-    <script src="lib/underscore/underscore-min.js"></script>
-    <script type="text/javascript" src="src/questionType.js"></script>
-    <script type="text/javascript" src="src/question.js"></script>
-    <script type="text/javascript" src="src/answer.js"></script>
-    <script type="text/javascript" src="src/choice.js"></script>
-    <script type="text/javascript" src="src/configuration.js"></script>
-    <script type="text/javascript" src="src/ObjectFactory.js"></script>
-    <script type="text/javascript" src="src/utils.js"></script>
-    <script type="text/javascript" src="src/jsonHandler.js"></script>
-    <script type="text/javascript" src="src/quizRunner.js"></script>
-    <script type="text/javascript" src="src/application.js"></script>
-    <script src="https://spreadsheets.google.com/feeds/cells/1to58wg_r4R_oie7IqYPzsqMglIKkDYCh4peNhCZ6xm4/1/public/values?alt=json-in-script&callback=JsonHandler.createQuestionTypeObjects"></script>
-    <script src="https://spreadsheets.google.com/feeds/cells/1to58wg_r4R_oie7IqYPzsqMglIKkDYCh4peNhCZ6xm4/2/public/values?alt=json-in-script&callback=JsonHandler.createAnswerObjects"></script>
-    <script src="https://spreadsheets.google.com/feeds/cells/1to58wg_r4R_oie7IqYPzsqMglIKkDYCh4peNhCZ6xm4/3/public/values?alt=json-in-script&callback=JsonHandler.createQuestionObjects"></script>
-    <script src="https://spreadsheets.google.com/feeds/cells/1to58wg_r4R_oie7IqYPzsqMglIKkDYCh4peNhCZ6xm4/4/public/values?alt=json-in-script&callback=JsonHandler.createChoiceObjects"></script>
+
+    <!-- Jquery, Underscore and Bootstrap -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+    <script type="text/javascript" src="dist/production.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-58320142-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
   </body>
 </html>
