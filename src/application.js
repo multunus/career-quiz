@@ -14,11 +14,4 @@ $(document).ready( function(){
       QuizRunner.showNextQuestion();
     }
   });
-
-  $('#fb-share').click(function(){
-    FB.ui({
-      method: 'share',
-      href: 'http://www.dudeonbench.com/careerquiz'
-    }, function(response){});
-  });
 });

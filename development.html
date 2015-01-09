@@ -51,17 +51,18 @@
             </p>
           </div>
           <div class="fb-share-section col-md-4 col-sm-8 col-xs-12">
-            <div id="fb-root"></div>
             <h3>Share the quiz with your friends </h3>
             <div class="col-md-4 col-sm-8 col-xs-12">
-              <button id="fb-share" class="nav-facebook">
-                <div class="social-text">
-                  <span class="facebook-icon social-icon">
-                    <img alt="Share on Facebook" src="img/fb-icon.png">
-                  </span>
-                  <p>Share on Facebook</p>
-                </div>
-              </button>
+              <a href="https://www.facebook.com/sharer/sharer.php?u=http://www.dudeonbench.com/careerquiz/" title='5 Minute Software Career Quiz' alt='5 Minute Software Career Quiz'>
+                <button id="fb-share" class="nav-facebook">
+                  <div class="social-text">
+                    <span class="facebook-icon social-icon">
+                      <img alt="Share on Facebook" src="img/fb-icon.png">
+                    </span>
+                    <p>Share on Facebook</p>
+                  </div>
+                </button>
+              </a>
             </div>
           </div>
           <div class="cta-text-section col-lg-8 col-md-8 col-sm-10 col-xs-12 cta-body-text">
@@ -94,22 +95,5 @@
     <script src="https://spreadsheets.google.com/feeds/cells/1to58wg_r4R_oie7IqYPzsqMglIKkDYCh4peNhCZ6xm4/2/public/values?alt=json-in-script&callback=JsonHandler.createAnswerObjects"></script>
     <script src="https://spreadsheets.google.com/feeds/cells/1to58wg_r4R_oie7IqYPzsqMglIKkDYCh4peNhCZ6xm4/3/public/values?alt=json-in-script&callback=JsonHandler.createQuestionObjects"></script>
     <script src="https://spreadsheets.google.com/feeds/cells/1to58wg_r4R_oie7IqYPzsqMglIKkDYCh4peNhCZ6xm4/4/public/values?alt=json-in-script&callback=JsonHandler.createChoiceObjects"></script>
-    <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '1530095703933137',
-          xfbml      : true,
-          version    : 'v2.2'
-        });
-      };
-
-      (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "//connect.facebook.net/en_US/sdk.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
-    </script>
   </body>
 </html>
