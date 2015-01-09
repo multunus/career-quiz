@@ -14,86 +14,33 @@ var file2 = __dirname + '/src/jsonDump/jsonAnswers';
 var file3 = __dirname + '/src/jsonDump/jsonQuestions';
 var file4 = __dirname + '/src/jsonDump/jsonChoices';
 
-fs.writeFile(file1, ' ', function(err){
-  if(err){
-    console.log(err);  
-  } else {
-    console.log('The file is reset.')
-  }
-});
+var createFilesInJsonDump = function(file, spreadsheet){
+  fs.writeFile(file, ' ', function(err){
+    if(err){
+      console.log(err);
+    } else {
+      console.log('The file is reset.')
+    }
+  });
 
 
-request(spreadsheet1, function (error, response, body) {
-  if (!error && response.statusCode === 200) {
-    fs.appendFile(file1, body, function(err) {
-      if(err) {
-          console.log(err);
-      } else {
-          console.log("The spreadsheet Json was saved in " + file1 );
-      }
-  }); 
-  }
-});
-
-fs.writeFile(file2, ' ', function(err){
-  if(err){
-    console.log(err);  
-  } else {
-    console.log('The file is reset.')
-  }
-});
+  request(spreadsheet, function (error, response, body) {
+    var entryPosition = body.indexOf('entry') + 7;
+    var entries = body.substring(entryPosition, body.length - 4);
+    if (!error && response.statusCode === 200) {
+      fs.appendFile(file, entries, function(err) {
+        if(err) {
+            console.log(err);
+        } else {
+            console.log("The spreadsheet Json was saved in " + file );
+        }
+      });
+    }
+  });
+};
 
 
-request(spreadsheet2, function (error, response, body) {
-  if (!error && response.statusCode === 200) {
-    fs.appendFile(file2, body, function(err) {
-      if(err) {
-          console.log(err);
-      } else {
-          console.log("The spreadsheet Json was saved in " + file2 );
-      }
-  }); 
-  }
-});
-
-fs.writeFile(file3, ' ', function(err){
-  if(err){
-    console.log(err);  
-  } else {
-    console.log('The file is reset.')
-  }
-});
-
-
-request(spreadsheet3, function (error, response, body) {
-  if (!error && response.statusCode === 200) {
-    fs.appendFile(file3, body, function(err) {
-      if(err) {
-          console.log(err);
-      } else {
-          console.log("The spreadsheet Json was saved in " + file3 );
-      }
-  }); 
-  }
-});
-
-fs.writeFile(file4, ' ', function(err){
-  if(err){
-    console.log(err);  
-  } else {
-    console.log('The file is reset.')
-  }
-});
-
-
-request(spreadsheet4, function (error, response, body) {
-  if (!error && response.statusCode === 200) {
-    fs.appendFile(file4, body, function(err) {
-      if(err) {
-          console.log(err);
-      } else {
-          console.log("The spreadsheet Json was saved in " + file4 );
-      }
-  }); 
-  }
-});
+createFilesInJsonDump(file1, spreadsheet1);
+createFilesInJsonDump(file2, spreadsheet2);
+createFilesInJsonDump(file3, spreadsheet3);
+createFilesInJsonDump(file4, spreadsheet4);
