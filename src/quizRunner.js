@@ -54,13 +54,11 @@ QuizRunner = {
     var groupByQuestionTypes = QuizRunner.groupChoicesByQuestionTypes();
     _.each(groupByQuestionTypes, function(value, key) {
       var result = $("<li class='result'></li>");
-      var qType = QuizRunner.getElementFromListById(EngineNameSpace.listOfQuestionTypes, key);
-      var qTypeElement = "<span class='question-type-text'>" + qType.displayText + "</span>";
       var groupByAnswers = QuizRunner.groupChoicesByAnswers(value);
       var chosenAnswerId = QuizRunner.findMostSuitableAnswer(groupByAnswers);
       var chosenAnswer = QuizRunner.getElementFromListById(EngineNameSpace.listOfAnswers, chosenAnswerId);
       var answerElement = "<span class='answer-text'>" + chosenAnswer.answerText + "</span>";
-      result.append(qTypeElement).append(answerElement);
+      result.append(answerElement);
       $("#results-section").append(result);
     });
   },
