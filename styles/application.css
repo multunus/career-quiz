@@ -81,7 +81,7 @@
 }
 
 #results-section .result{
-  font-size: 1.5em;
+  font-size: 1.4em;
 }
 
 .btn.btn-red {
@@ -110,7 +110,7 @@
 }
 
 .cta-body-text{
-  font-size: 1.2em;
+  font-size: 1.25em;
 }
 
 .nav-facebook {
@@ -149,6 +149,7 @@
 .cta-text-section{
   margin: 5px 0;
   padding: 10px 15px;
+  background: none repeat scroll 0 0 rgba(249, 249, 249, 0.63);
 }
 
 .multunus-link{
