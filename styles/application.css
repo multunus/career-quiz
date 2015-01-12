@@ -1,4 +1,4 @@
-#error-field, #results-container {
+#error-field, #results-container, #cta-container, #share-container {
   display: none;
 }
 
@@ -95,6 +95,10 @@
 
 .btn.btn-red:hover{
   background-color: #BE1F3B;
+}
+
+.btn.btn-red.btn-back{
+  width: 180px;
 }
 
 .jumbotron {

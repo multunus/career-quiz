@@ -21,7 +21,7 @@
         </div>
         <hr class="header-underline col-md-12 col-sm-12 col-xs-12">
       </div>
-      <div id="quiz-container" class="row">
+      <div id="quiz-container" class="row screen">
         <form id="questionnaire" class="col-md-10 col-lg-10 col-sm-12 col-xs-12">
           <div id="quiz-status">
           </div>
@@ -35,11 +35,16 @@
           <div id="error-field">Please select one of the options</div>
         </form>
       </div>
-      <div id="results-container" class="row">
+      <div id="results-container" class="row screen">
         <div class="jumbotron">
           <h3 class="heading">Your're done! Here's what suits you best:</h3>
           <ol id="results-section"></ol>
         </div>
+        <button class="btn btn-red" id="results-screen-next">
+          Next
+        </button>
+      </div>
+      <div id="cta-container" class="row screen">
         <div class="cta-section col-md-12 col-sm-12 col-xs-12">
           <div class='cta-text-section col-lg-6 col-md-6 col-sm-12 col-xs-12'>
             <p class="cta-body-text">
@@ -49,23 +54,33 @@
               <span class='cta-red'>Check your email.</span> We’ve sent you instructions to download our extensively researched (and <em>free</em>) eBook.
             </p>
           </div>
-          <div class="cta-text-section col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <p class="cta-body-text">Building better careers together with your friends is more fun.</p>
-            <div class="fb-share-section col-lg-6 col-md-6 col-sm-8 col-xs-12">
-              <div class="col-md-4 col-sm-8 col-xs-12">
-                <a href="https://www.facebook.com/sharer/sharer.php?u=http://www.dudeonbench.com/careerquiz/" title='5 Minute Software Career Quiz' alt='5 Minute Software Career Quiz'>
-                  <button id="fb-share" class="nav-facebook">
-                    <div class="social-text">
-                      <span class="facebook-icon social-icon">
-                        <img alt="Share on Facebook" src="img/fb-icon.png">
-                      </span>
-                      <p>Share on Facebook</p>
-                    </div>
-                  </button>
-                </a>
-              </div>
+        </div>
+        <button class="btn btn-red" id="cta-screen-next">
+          Next
+        </button>
+      </div>
+      <div id="share-container"  class="row screen">
+        <div class="cta-text-section col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <p class="cta-body-text">Building better careers together with your friends is more fun.</p>
+          <div class="fb-share-section col-lg-6 col-md-6 col-sm-8 col-xs-12">
+            <div class="col-md-4 col-sm-8 col-xs-12">
+              <a href="https://www.facebook.com/sharer/sharer.php?u=http://www.dudeonbench.com/careerquiz/" title='5 Minute Software Career Quiz' alt='5 Minute Software Career Quiz'>
+                <button id="fb-share" class="nav-facebook">
+                  <div class="social-text">
+                    <span class="facebook-icon social-icon">
+                      <img alt="Share on Facebook" src="img/fb-icon.png">
+                    </span>
+                    <p>Share on Facebook</p>
+                  </div>
+                </button>
+              </a>
             </div>
           </div>
+        </div>
+        <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+          <button class="btn btn-red btn-back" id="share-screen-back">
+            Back to Results Page
+          </button>
         </div>
       </div>
     </div>

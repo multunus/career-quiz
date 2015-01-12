@@ -148,14 +148,14 @@ QuizRunner = {
   },
   showNextQuestion: function(){
     if (EngineNameSpace.currentQuestion < EngineNameSpace.listOfQuestions.length) {
-      $('#results-container').hide();
+      $('.screen').hide();
       $('.public-interest').hide();
       $('#quiz-container').show();
       EngineNameSpace.currentQuestion += 1;
       QuizRunner.fillQuestionContainer((EngineNameSpace.currentQuestion).toString());
     }
     else {
-      $('#quiz-container').hide();
+      $('.screen').hide();
       QuizRunner.displayResults();
       $('#results-container').show();
       $('.public-interest').show();
@@ -232,5 +232,20 @@ $(document).ready( function(){
       QuizRunner.pushChosenChoice(radioChecked[0].value);
       QuizRunner.showNextQuestion();
     }
+  });
+  $('#results-screen-next').click(function(event){
+    event.preventDefault();
+    $('.screen').hide();
+    $('#cta-container').show();
+  });
+  $('#cta-screen-next').click(function(event){
+    event.preventDefault();
+    $('.screen').hide();
+    $('#share-container').show();
+  });
+  $('#share-screen-back').click(function(event){
+    event.preventDefault();
+    $('.screen').hide();
+    $('#results-container').show();
   });
 });

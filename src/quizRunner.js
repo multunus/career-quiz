@@ -21,14 +21,14 @@ QuizRunner = {
   },
   showNextQuestion: function(){
     if (EngineNameSpace.currentQuestion < EngineNameSpace.listOfQuestions.length) {
-      $('#results-container').hide();
+      $('.screen').hide();
       $('.public-interest').hide();
       $('#quiz-container').show();
       EngineNameSpace.currentQuestion += 1;
       QuizRunner.fillQuestionContainer((EngineNameSpace.currentQuestion).toString());
     }
     else {
-      $('#quiz-container').hide();
+      $('.screen').hide();
       QuizRunner.displayResults();
       $('#results-container').show();
       $('.public-interest').show();

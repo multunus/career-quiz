@@ -14,4 +14,19 @@ $(document).ready( function(){
       QuizRunner.showNextQuestion();
     }
   });
+  $('#results-screen-next').click(function(event){
+    event.preventDefault();
+    $('.screen').hide();
+    $('#cta-container').show();
+  });
+  $('#cta-screen-next').click(function(event){
+    event.preventDefault();
+    $('.screen').hide();
+    $('#share-container').show();
+  });
+  $('#share-screen-back').click(function(event){
+    event.preventDefault();
+    $('.screen').hide();
+    $('#results-container').show();
+  });
 });
