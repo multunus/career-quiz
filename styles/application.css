@@ -91,14 +91,19 @@
   height: 40px;
   width: 80px;
   margin-bottom: 3px;
+  margin-left: 45px;
 }
 
 .btn.btn-red:hover{
   background-color: #BE1F3B;
 }
 
-.btn.btn-red.btn-back{
+.btn.btn-red.btn-results{
   width: 180px;
+}
+
+.btn.btn-red.btn-back{
+  width: 290px;
 }
 
 .jumbotron {
@@ -196,6 +201,10 @@
   top: 50%;
 }
 
+.share-section .cta-text-section{
+  padding-bottom: 60px;
+}
+
 @media screen and ( max-width: 768px ) {
   .image-section div{
     display:block;
@@ -222,4 +231,6 @@
     white-space: nowrap;
   }
 }
+
+
 
