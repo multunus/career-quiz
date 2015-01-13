@@ -22,7 +22,6 @@ QuizRunner = {
   showNextQuestion: function(){
     if (EngineNameSpace.currentQuestion < EngineNameSpace.listOfQuestions.length) {
       $('.screen').hide();
-      $('.public-interest').hide();
       $('#quiz-container').show();
       EngineNameSpace.currentQuestion += 1;
       QuizRunner.fillQuestionContainer((EngineNameSpace.currentQuestion).toString());
@@ -31,7 +30,6 @@ QuizRunner = {
       $('.screen').hide();
       QuizRunner.displayResults();
       $('#results-container').show();
-      $('.public-interest').show();
     }
   },
   groupChoicesByQuestionTypes: function(){
