@@ -91,6 +91,10 @@
   height: 40px;
   width: 80px;
   margin-bottom: 3px;
+}
+
+.btn.btn-red.btn-results, .btn.btn-red.btn-next-on-confirm-page,
+.btn.btn-red.btn-back{
   margin-left: 45px;
 }
 
