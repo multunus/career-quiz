@@ -93,8 +93,7 @@
   margin-bottom: 3px;
 }
 
-.btn.btn-red.btn-results, .btn.btn-red.btn-next-on-confirm-page,
-.btn.btn-red.btn-back{
+.btn.btn-red.btn-results, .btn.btn-red.btn-next-on-confirm-page{
   margin-left: 45px;
 }
 
@@ -106,8 +105,12 @@
   width: 180px;
 }
 
-.btn.btn-red.btn-back{
-  width: 290px;
+#share-screen-back{
+  color: #D9534F;
+}
+
+#share-screen-back:hover{
+  color: #BE1F3B;
 }
 
 .jumbotron {
@@ -205,8 +208,16 @@
   top: 50%;
 }
 
-.share-section .cta-text-section{
-  padding-bottom: 60px;
+.go-back-container{
+  padding-left: 75px;
+}
+
+.built-with-container{
+  margin-top: 125px;
+}
+
+.button-container{
+  margin-bottom: 30px;
 }
 
 @media screen and ( max-width: 768px ) {
@@ -233,6 +244,16 @@
   .image-section{
     width: 100%;
     white-space: nowrap;
+  }
+}
+
+@media screen and ( max-width: 480px ) {
+  .fb-share-section{
+    margin-left: -68px;
+  }
+
+  #results-section .result{
+    font-size: 1.4em;
   }
 }
 
