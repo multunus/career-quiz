@@ -21,17 +21,15 @@ QuizRunner = {
   },
   showNextQuestion: function(){
     if (EngineNameSpace.currentQuestion < EngineNameSpace.listOfQuestions.length) {
-      $('#results-container').hide();
-      $('.public-interest').hide();
+      $('.screen').hide();
       $('#quiz-container').show();
       EngineNameSpace.currentQuestion += 1;
       QuizRunner.fillQuestionContainer((EngineNameSpace.currentQuestion).toString());
     }
     else {
-      $('#quiz-container').hide();
+      $('.screen').hide();
       QuizRunner.displayResults();
       $('#results-container').show();
-      $('.public-interest').show();
     }
   },
   groupChoicesByQuestionTypes: function(){
@@ -52,6 +50,11 @@ QuizRunner = {
     });
     return (_.max(answerCounts, function(answer){ return answer.numberOfElements})).answerId;
   },
+  updateRoleOnConfirmationScreen: function(chosenAnswer){
+    if(chosenAnswer.pid < 5){
+      $("#role-text").text(chosenAnswer.answerName);
+    }
+  },
   displayResults: function(){
     var groupByQuestionTypes = QuizRunner.groupChoicesByQuestionTypes();
     _.each(groupByQuestionTypes, function(value, key) {
@@ -62,6 +65,7 @@ QuizRunner = {
       var answerElement = "<span class='answer-text'>" + chosenAnswer.answerText + "</span>";
       result.append(answerElement);
       $("#results-section").append(result);
+      QuizRunner.updateRoleOnConfirmationScreen(chosenAnswer);
     });
   },
   //Added from http://stackoverflow.com/a/2450976

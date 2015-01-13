@@ -91,4 +91,46 @@ describe("Application", function(){
       });
     });
   });
+
+  describe("on click of #results-screen-next button", function(){
+    it("shows cta-container", function(){
+      $('.screen').hide();
+      $('#results-container').show();
+      var spyClickNextOnResultsScreen = spyOnEvent('#results-screen-next', 'click');
+      $('#results-screen-next').click();
+      expect('click').toHaveBeenTriggeredOn('#results-screen-next');
+      expect(spyClickNextOnResultsScreen).toHaveBeenTriggered();
+      expect($('#cta-container')).not.toBeHidden();
+      expect($('#results-container')).toBeHidden();
+      expect($('#share-container')).toBeHidden();
+    });
+  });
+
+  describe("on click of #cta-screen-next button", function(){
+    it("shows share-container", function(){
+      $('.screen').hide();
+      $('#cta-container').show();
+      var spyClickNextOnCtaScreen = spyOnEvent('#cta-screen-next', 'click');
+      $('#cta-screen-next').click();
+      expect('click').toHaveBeenTriggeredOn('#cta-screen-next');
+      expect(spyClickNextOnCtaScreen).toHaveBeenTriggered();
+      expect($('#share-container')).not.toBeHidden();
+      expect($('#cta-container')).toBeHidden();
+      expect($('#results-container')).toBeHidden();
+    });
+  });
+
+  describe("on click of #share-screen-back button", function(){
+    it("shows results-container", function(){
+      $('.screen').hide();
+      $('#share-container').show();
+      var spyBackonShareScreen = spyOnEvent('#share-screen-back', 'click');
+      $('#share-screen-back').click();
+      expect('click').toHaveBeenTriggeredOn('#share-screen-back');
+      expect(spyBackonShareScreen).toHaveBeenTriggered();
+      expect($("#results-container")).not.toBeHidden();
+      expect($('#share-container')).toBeHidden();
+      expect($('#cta-container')).toBeHidden();
+    });
+  });
 });

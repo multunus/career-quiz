@@ -1,4 +1,4 @@
-#error-field, #results-container {
+#error-field, #results-container, #cta-container, #share-container {
   display: none;
 }
 
@@ -81,7 +81,7 @@
 }
 
 #results-section .result{
-  font-size: 1.4em;
+  font-size: 1.5em;
 }
 
 .btn.btn-red {
@@ -93,8 +93,24 @@
   margin-bottom: 3px;
 }
 
+.btn.btn-red.btn-results, .btn.btn-red.btn-next-on-confirm-page{
+  margin-left: 45px;
+}
+
 .btn.btn-red:hover{
   background-color: #BE1F3B;
+}
+
+.btn.btn-red.btn-results{
+  width: 180px;
+}
+
+#share-screen-back{
+  color: #D9534F;
+}
+
+#share-screen-back:hover{
+  color: #BE1F3B;
 }
 
 .jumbotron {
@@ -192,6 +208,18 @@
   top: 50%;
 }
 
+.go-back-container{
+  padding-left: 75px;
+}
+
+.built-with-container{
+  margin-top: 125px;
+}
+
+.button-container{
+  margin-bottom: 30px;
+}
+
 @media screen and ( max-width: 768px ) {
   .image-section div{
     display:block;
@@ -218,4 +246,16 @@
     white-space: nowrap;
   }
 }
+
+@media screen and ( max-width: 480px ) {
+  .fb-share-section{
+    margin-left: -68px;
+  }
+
+  #results-section .result{
+    font-size: 1.4em;
+  }
+}
+
+
 
