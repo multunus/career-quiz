@@ -64,50 +64,60 @@
       </div>
       <div id="results-container" class="row screen">
         <div class="jumbotron">
-          <h3 class="heading">Your're done! Here's what suits you best:</h3>
+          <h3 class="heading">You're done! Here's what suits you best:</h3>
           <ol id="results-section"></ol>
         </div>
-        <button class="btn btn-red" id="results-screen-next">
-          Next
-        </button>
+        <div class="button-container col-lg-8 col-md-8 col-sm-12 col-xs-12">
+          <button class="btn btn-red btn-results" id="results-screen-next">
+            Get your Freebie!
+          </button>
+        </div>
       </div>
       <div id="cta-container" class="row screen">
-        <div class="cta-section col-md-12 col-sm-12 col-xs-12">
-          <div class='cta-text-section col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+        <div class="cta-section col-lg-10 col-md-12 col-sm-12 col-xs-12 jumbotron">
+          <div class='cta-text-section col-lg-10 col-md-10 col-sm-12 col-xs-12'>
             <p class="cta-body-text">
-              Did you find this quiz <strong><em>COOL</em></strong>? We’ve got better news for you.
+              You just won yoursel a freebie! <span class='cta-red'>Please check your email to confirm.</span>
             </p>
             <p class='cta-body-text'>
-              <span class='cta-red'>Check your email.</span> We’ve sent you instructions to download our extensively researched (and <em>free</em>) eBook.
+              We’ve sent you instructions to download our extensively researched (and <em>free</em>) eBook on honing your skills to become a great <strong><span id="role-text">Professional</span></strong>.
             </p>
           </div>
         </div>
-        <button class="btn btn-red" id="cta-screen-next">
-          Next
-        </button>
+        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+          <button class="button-container btn btn-red btn-next-on-confirm-page" id="cta-screen-next">
+            Next
+          </button>
+        </div>
       </div>
       <div id="share-container"  class="row screen">
-        <div class="cta-text-section col-lg-6 col-md-6 col-sm-12 col-xs-12">
-          <p class="cta-body-text">Building better careers together with your friends is more fun.</p>
-          <div class="fb-share-section col-lg-6 col-md-6 col-sm-8 col-xs-12">
-            <div class="col-md-4 col-sm-8 col-xs-12">
-              <a href="https://www.facebook.com/sharer/sharer.php?u=http://www.dudeonbench.com/careerquiz/" title='5 Minute Software Career Quiz' alt='5 Minute Software Career Quiz'>
-                <button id="fb-share" class="nav-facebook">
-                  <div class="social-text">
-                    <span class="facebook-icon social-icon">
-                      <img alt="Share on Facebook" src="img/fb-icon.png">
-                    </span>
-                    <p>Share on Facebook</p>
-                  </div>
-                </button>
-              </a>
+        <div class="share-section jumbotron">
+          <div class="cta-text-section">
+            <p class="cta-body-text">Would any of your friends benefit from this?</p>
+            <p class="cta-body-text">Please share the quiz and the ebook with them.</p>
+            <div class="fb-share-section col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="col-md-4 col-sm-8 col-xs-12">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=http://www.dudeonbench.com/careerquiz/" title='5 Minute Software Career Quiz' alt='5 Minute Software Career Quiz'>
+                  <button id="fb-share" class="nav-facebook">
+                    <div class="social-text">
+                      <span class="facebook-icon social-icon">
+                        <img alt="Share on Facebook" src="img/fb-icon.png">
+                      </span>
+                      <p>Share on Facebook</p>
+                    </div>
+                  </button>
+                </a>
+              </div>
             </div>
+            <p class="cta-body-text built-with-container">
+              Built with <span class='cta-red'>&hearts;</span> by <a href='http://www.multunus.com/' class='multunus-link' title='Multunus Software' alt='Multunus Software'>Multunus</a>.
+            </p>
           </div>
         </div>
-        <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
-          <button class="btn btn-red btn-back" id="share-screen-back">
-            Back to Results Page
-          </button>
+        <div class="button-container go-back-container col-lg-8 col-md-8 col-sm-12 col-xs-12">
+          <a id="share-screen-back" title="Go back to Results Page" href="#">
+            I want to see my Results again!
+          </a>
         </div>
       </div>
     </div>

@@ -121,6 +121,12 @@ describe("QuizRunner", function(){
       .toBe('1');
     });
   });
+  describe("updateRoleOnConfirmationScreen", function(){
+    it("updated role-text on the confirmation screen", function(){
+      QuizRunner.updateRoleOnConfirmationScreen({'pid' : '1', 'questionTypeId' : '1', 'answerName': 'programmer', 'answerText': 'You are a builder by nature. You can become a great programmer.'});
+      expect($('#role-text').text()).toBe('programmer');
+    });
+  });
   describe("displayResults", function(){
     beforeEach(function(){
       EngineNameSpace.listOfChosenChoices = [{'pid': '1', 'questionTypeId' : '1', 'questionId' : '1', 'answerId': '1', 'choiceText': 'Solving a puzzle.'}, {'pid': '3','questionTypeId' : '1', 'questionId' : '2', 'answerId': '1', 'choiceText': 'New programming techniques.'} ];

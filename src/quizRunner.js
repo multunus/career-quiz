@@ -50,6 +50,11 @@ QuizRunner = {
     });
     return (_.max(answerCounts, function(answer){ return answer.numberOfElements})).answerId;
   },
+  updateRoleOnConfirmationScreen: function(chosenAnswer){
+    if(chosenAnswer.pid < 5){
+      $("#role-text").text(chosenAnswer.answerName);
+    }
+  },
   displayResults: function(){
     var groupByQuestionTypes = QuizRunner.groupChoicesByQuestionTypes();
     _.each(groupByQuestionTypes, function(value, key) {
@@ -60,6 +65,7 @@ QuizRunner = {
       var answerElement = "<span class='answer-text'>" + chosenAnswer.answerText + "</span>";
       result.append(answerElement);
       $("#results-section").append(result);
+      QuizRunner.updateRoleOnConfirmationScreen(chosenAnswer);
     });
   },
   //Added from http://stackoverflow.com/a/2450976
