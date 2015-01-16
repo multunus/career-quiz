@@ -13,8 +13,8 @@
   },
   "devDependencies": {
     "gulp": "3.8.10",
+    "gulp-run": "*",
     "gulp-concat": "2.4.3",
-    "request" : "*",
     "request-promise": "*"
   }
 }
