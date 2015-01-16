@@ -1,38 +1,5 @@
 describe("JsonHandler", function(){
-
-  beforeEach(function() {
-    EngineNameSpace = {
-      listOfQuestionTypes : [],
-      listOfQuestions : [],
-      listOfChoices : [],
-      listOfAnswers : [],
-      listOfChosenChoices : []
-    };
-    Types = {
-      'questionType' : {
-        'listName' : 'listOfQuestionTypes',
-        'args' : []
-      },
-      'question' : {
-        'listName' : 'listOfQuestions',
-        'args' : []
-      },
-      'answer' : {
-        'listName' : 'listOfAnswers',
-        'args' : []
-      },
-      'choice' : {
-        'listName' : 'listOfChoices',
-        'args' : []
-      },
-      'chosenChoice' : {
-        'listName' : 'listOfChosenChoices',
-        'args' : []
-      }
-    };
-  });
-
-  describe("createQuestionTypeObjects", function(){
+  describe("fetchQuestionTypesJson", function(){
     var data = {
       feed: {
         entry : [
@@ -44,14 +11,14 @@ describe("JsonHandler", function(){
       }
     };
     
-    it("should create a list of objects in listOfQuestionTypes", function(){
-      JsonHandler.createQuestionTypeObjects(data);
-      expect(EngineNameSpace['listOfQuestionTypes'][0]['pid']).toEqual('1');
-      expect(EngineNameSpace['listOfQuestionTypes'][0]['ptype']).toEqual('Profession');
+    it("fetches QuestionTypes Json from Google Spreadsheet", function(){
+      FetchedJsonData.QuestionTypesSpreadsheet = [];
+      JsonHandler.fetchQuestionTypesJson(data);
+      expect(FetchedJsonData.QuestionTypesSpreadsheet).toEqual([ { gs$cell: { $t: 'pid', col: '1', row: '1' } }, { gs$cell: { $t: 'ptype', col: '2', row: '1' } }, { gs$cell: { $t: '1', col: '1', row: '2' } }, { gs$cell: { $t: 'Profession', col: '1', row: '2' } } ]);
     });
   });
 
-  describe("createAnswerObjects", function(){
+  describe("fetchAnswersJson", function(){
     var data = {
       feed: {
         entry : [
@@ -67,16 +34,14 @@ describe("JsonHandler", function(){
       }
     };
     
-    it("should create a list of objects in listOfAnswers", function(){
-      JsonHandler.createAnswerObjects(data);
-      expect(EngineNameSpace['listOfAnswers'][0]['pid']).toEqual('1');
-      expect(EngineNameSpace['listOfAnswers'][0]['questionTypeId']).toEqual('1');
-      expect(EngineNameSpace['listOfAnswers'][0]['answerName']).toEqual('programmer');
-      expect(EngineNameSpace['listOfAnswers'][0]['answerText']).toEqual('Programmer.');
+    it("fetches Answers Json from Google Spreadsheet", function(){
+      FetchedJsonData.AnswersSpreadsheet = [];
+      JsonHandler.fetchAnswersJson(data);
+      expect(FetchedJsonData.AnswersSpreadsheet).toEqual([ { gs$cell: { $t: 'pid', col: '1', row: '1' } }, { gs$cell: { $t: 'questionTypeId', col: '2', row: '1' } }, { gs$cell: { $t: 'answerName', col: '3', row: '1' } }, { gs$cell: { $t: 'answerText', col: '4', row: '1' } }, { gs$cell: { $t: '1', col: '1', row: '2' } }, { gs$cell: { $t: '1', col: '2', row: '2' } }, { gs$cell: { $t: 'programmer', col: '3', row: '2' } }, { gs$cell: { $t: 'Programmer.', col: '4', row: '2' } } ]);
     });
   });
 
-  describe("createQuestionObjectss", function(){
+  describe("fetchQuestionsJson", function(){
     var data = {
       feed: {
         entry : [
@@ -90,15 +55,14 @@ describe("JsonHandler", function(){
       }
     };
     
-    it("should create a list of objects in listOfQuestions", function(){
-      JsonHandler.createQuestionObjects(data);
-      expect(EngineNameSpace['listOfQuestions'][0]['pid']).toEqual('1');
-      expect(EngineNameSpace['listOfQuestions'][0]['questionTypeId']).toEqual('1');
-      expect(EngineNameSpace['listOfQuestions'][0]['questionText']).toEqual('How do you spend your time?');
+    it("fetches Questions Json from Google Spreadsheet", function(){
+      FetchedJsonData.QuestionsSpreadsheet = [];
+      JsonHandler.fetchQuestionsJson(data);
+      expect(FetchedJsonData.QuestionsSpreadsheet).toEqual([ { gs$cell: { $t: 'pid', col: '1', row: '1' } }, { gs$cell: { $t: 'questionTypeId', col: '2', row: '1' } }, { gs$cell: { $t: 'questionText', col: '3', row: '1' } }, { gs$cell: { $t: '1', col: '1', row: '2' } }, { gs$cell: { $t: '1', col: '2', row: '2' } }, { gs$cell: { $t: 'How do you spend your time?', col: '3', row: '2' } } ]);
     });
   });
 
-  describe("createChoiceObjectss", function(){
+  describe("fetchChoicesJson", function(){
     var data = {
       feed: {
         entry : [
@@ -116,13 +80,10 @@ describe("JsonHandler", function(){
       }
     };
     
-    it("should create a list of objects in listOfChoices", function(){
-      JsonHandler.createChoiceObjects(data);
-      expect(EngineNameSpace['listOfChoices'][0]['pid']).toEqual('1');
-      expect(EngineNameSpace['listOfChoices'][0]['questionTypeId']).toEqual('1');
-      expect(EngineNameSpace['listOfChoices'][0]['questionId']).toEqual('1');
-      expect(EngineNameSpace['listOfChoices'][0]['answerId']).toEqual('1');
-      expect(EngineNameSpace['listOfChoices'][0]['choiceText']).toEqual('You enjoy finding solutions to problems.');
+    it("fetches Choices Json from Google Spreadsheet", function(){
+      FetchedJsonData.ChoicesSpreadsheet = [];
+      JsonHandler.fetchChoicesJson(data);
+      expect(FetchedJsonData.ChoicesSpreadsheet).toEqual([ { gs$cell: { $t: 'pid', col: '1', row: '1' } }, { gs$cell: { $t: 'questionTypeId', col: '2', row: '1' } }, { gs$cell: { $t: 'questionId', col: '3', row: '1' } }, { gs$cell: { $t: 'answerId', col: '4', row: '1' } }, { gs$cell: { $t: 'choiceText', col: '5', row: '1' } }, { gs$cell: { $t: '1', col: '1', row: '2' } }, { gs$cell: { $t: '1', col: '2', row: '2' } }, { gs$cell: { $t: '1', col: '3', row: '2' } }, { gs$cell: { $t: '1', col: '4', row: '2' } }, { gs$cell: { $t: 'You enjoy finding solutions to problems.', col: '5', row: '2' } } ]);
     });
   });
 });

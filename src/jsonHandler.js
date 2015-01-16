@@ -1,14 +1,14 @@
 JsonHandler = {
-  createQuestionTypeObjects : function(data){
-    Utils.populateList('questionType', data.feed.entry);
+  fetchQuestionTypesJson : function(data){
+    FetchedJsonData.QuestionTypesSpreadsheet = data.feed.entry;
   },
-  createAnswerObjects : function(data){
-    Utils.populateList('answer', data.feed.entry);
+  fetchAnswersJson : function(data){
+    FetchedJsonData.AnswersSpreadsheet = data.feed.entry;
   },
-  createQuestionObjects : function(data){
-    Utils.populateList('question', data.feed.entry);
+  fetchQuestionsJson : function(data){
+    FetchedJsonData.QuestionsSpreadsheet = data.feed.entry;
   },
-  createChoiceObjects : function(data){
-    Utils.populateList('choice', data.feed.entry);
+  fetchChoicesJson : function(data){
+    FetchedJsonData.ChoicesSpreadsheet = data.feed.entry;
   }
 };

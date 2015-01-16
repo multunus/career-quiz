@@ -1,4 +1,9 @@
 $(document).ready( function(){
+  Utils.populateList('questionType', FetchedJsonData.QuestionTypesSpreadsheet);
+  Utils.populateList('answer', FetchedJsonData.AnswersSpreadsheet);
+  Utils.populateList('question', FetchedJsonData.QuestionsSpreadsheet);
+  Utils.populateList('choice', FetchedJsonData.ChoicesSpreadsheet);
+  
   EngineNameSpace.currentQuestion = 0;
   QuizRunner.showNextQuestion();
 

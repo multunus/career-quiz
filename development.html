@@ -96,6 +96,7 @@
     </div>
     <script src="lib/jquery/jquery-1.11.2.min.js"></script>
     <script src="lib/underscore/underscore-min.js"></script>
+    <script type="text/javascript" src="src/fetchedJsonData.js"></script>
     <script type="text/javascript" src="src/questionType.js"></script>
     <script type="text/javascript" src="src/question.js"></script>
     <script type="text/javascript" src="src/answer.js"></script>
@@ -106,9 +107,9 @@
     <script type="text/javascript" src="src/jsonHandler.js"></script>
     <script type="text/javascript" src="src/quizRunner.js"></script>
     <script type="text/javascript" src="src/application.js"></script>
-    <script src="https://spreadsheets.google.com/feeds/cells/1to58wg_r4R_oie7IqYPzsqMglIKkDYCh4peNhCZ6xm4/1/public/values?alt=json-in-script&callback=JsonHandler.createQuestionTypeObjects"></script>
-    <script src="https://spreadsheets.google.com/feeds/cells/1to58wg_r4R_oie7IqYPzsqMglIKkDYCh4peNhCZ6xm4/2/public/values?alt=json-in-script&callback=JsonHandler.createAnswerObjects"></script>
-    <script src="https://spreadsheets.google.com/feeds/cells/1to58wg_r4R_oie7IqYPzsqMglIKkDYCh4peNhCZ6xm4/3/public/values?alt=json-in-script&callback=JsonHandler.createQuestionObjects"></script>
-    <script src="https://spreadsheets.google.com/feeds/cells/1to58wg_r4R_oie7IqYPzsqMglIKkDYCh4peNhCZ6xm4/4/public/values?alt=json-in-script&callback=JsonHandler.createChoiceObjects"></script>
+    <script src="https://spreadsheets.google.com/feeds/cells/1to58wg_r4R_oie7IqYPzsqMglIKkDYCh4peNhCZ6xm4/1/public/values?alt=json-in-script&callback=JsonHandler.fetchQuestionTypesJson"></script>
+    <script src="https://spreadsheets.google.com/feeds/cells/1to58wg_r4R_oie7IqYPzsqMglIKkDYCh4peNhCZ6xm4/2/public/values?alt=json-in-script&callback=JsonHandler.fetchAnswersJson"></script>
+    <script src="https://spreadsheets.google.com/feeds/cells/1to58wg_r4R_oie7IqYPzsqMglIKkDYCh4peNhCZ6xm4/3/public/values?alt=json-in-script&callback=JsonHandler.fetchQuestionsJson"></script>
+    <script src="https://spreadsheets.google.com/feeds/cells/1to58wg_r4R_oie7IqYPzsqMglIKkDYCh4peNhCZ6xm4/4/public/values?alt=json-in-script&callback=JsonHandler.fetchChoicesJson"></script>
   </body>
 </html>
