@@ -1,8 +1,8 @@
 $(document).ready( function(){
-  Utils.populateList('questionType', PrefetchedJsonData.QuestionTypesSpreadsheet);
-  Utils.populateList('answer', PrefetchedJsonData.AnswersSpreadsheet);
-  Utils.populateList('question', PrefetchedJsonData.QuestionsSpreadsheet);
-  Utils.populateList('choice', PrefetchedJsonData.ChoicesSpreadsheet);
+  Utils.populateList('questionType', FetchedJsonData.QuestionTypesSpreadsheet);
+  Utils.populateList('answer', FetchedJsonData.AnswersSpreadsheet);
+  Utils.populateList('question', FetchedJsonData.QuestionsSpreadsheet);
+  Utils.populateList('choice', FetchedJsonData.ChoicesSpreadsheet);
   
   EngineNameSpace.currentQuestion = 0;
   QuizRunner.showNextQuestion();

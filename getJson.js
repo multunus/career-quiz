@@ -1,46 +1,70 @@
-var request = require("request");
-var fs = require('fs');
+(function() {
+  'use strict';
 
-var google = "http://www.google.com";
+  var rp = require('request-promise');
+  var fs = require('fs');
+  var _und = require("./lib/underscore/underscore-min");
 
-var spreadsheet1 = "https://spreadsheets.google.com/feeds/cells/1to58wg_r4R_oie7IqYPzsqMglIKkDYCh4peNhCZ6xm4/1/public/values?alt=json-in-script";
-var spreadsheet2 = "https://spreadsheets.google.com/feeds/cells/1to58wg_r4R_oie7IqYPzsqMglIKkDYCh4peNhCZ6xm4/2/public/values?alt=json-in-script";
-var spreadsheet3 = "https://spreadsheets.google.com/feeds/cells/1to58wg_r4R_oie7IqYPzsqMglIKkDYCh4peNhCZ6xm4/3/public/values?alt=json-in-script";
-var spreadsheet4 = "https://spreadsheets.google.com/feeds/cells/1to58wg_r4R_oie7IqYPzsqMglIKkDYCh4peNhCZ6xm4/4/public/values?alt=json-in-script";
-                 
-                   
-var file1 = __dirname + '/src/jsonDump/jsonQuestionTypes';
-var file2 = __dirname + '/src/jsonDump/jsonAnswers';
-var file3 = __dirname + '/src/jsonDump/jsonQuestions';
-var file4 = __dirname + '/src/jsonDump/jsonChoices';
+  var FetchedJsonData = {
+    'QuestionTypesSpreadsheet': null,
+    'QuestionsSpreadsheet': null,
+    'ChoicesSpreadsheet': null,
+    'AnswersSpreadsheet': null
+  }
 
-var createFilesInJsonDump = function(file, spreadsheet){
-  fs.writeFile(file, ' ', function(err){
-    if(err){
-      console.log(err);
-    } else {
-      console.log('The file is reset.')
+  var spreadsheets = [
+    {name: 'QuestionTypesSpreadsheet', url: 'https://spreadsheets.google.com/feeds/cells/1to58wg_r4R_oie7IqYPzsqMglIKkDYCh4peNhCZ6xm4/1/public/values?alt=json-in-script'},
+    {name: 'AnswersSpreadsheet', url: 'https://spreadsheets.google.com/feeds/cells/1to58wg_r4R_oie7IqYPzsqMglIKkDYCh4peNhCZ6xm4/2/public/values?alt=json-in-script'},
+    {name: 'QuestionsSpreadsheet', url: 'https://spreadsheets.google.com/feeds/cells/1to58wg_r4R_oie7IqYPzsqMglIKkDYCh4peNhCZ6xm4/3/public/values?alt=json-in-script'},
+    {name: 'ChoicesSpreadsheet', url: 'https://spreadsheets.google.com/feeds/cells/1to58wg_r4R_oie7IqYPzsqMglIKkDYCh4peNhCZ6xm4/4/public/values?alt=json-in-script'}
+  ];
+
+  var jsontoString = function() {
+    var returnString = "var FetchedJsonData = {\n";
+    for (var key in FetchedJsonData){
+      returnString += "  " + key + ": ";
+      returnString += FetchedJsonData[key] + ",\n";
     }
-  });
+    returnString += "};";
+    return returnString;
+  }
 
+  var file = __dirname + '/src/fetchedJsonData.js';
 
-  request(spreadsheet, function (error, response, body) {
-    var entryPosition = body.indexOf('entry') + 7;
-    var entries = body.substring(entryPosition, body.length - 4);
-    if (!error && response.statusCode === 200) {
-      fs.appendFile(file, entries, function(err) {
-        if(err) {
-            console.log(err);
-        } else {
-            console.log("The spreadsheet Json was saved in " + file );
+  var getDataForQuestionnaire = function(body){
+    var startPosition = body.indexOf('entry') + 7;
+    var endPosition = body.length - 4;
+    return body.substring(startPosition, endPosition);
+  };
+
+  var resetFile = function(file){
+    fs.writeFile(file, '', function(err) {
+      if (err) console.log(err);
+    });
+  };
+
+  var appendToFile = function(file, data){
+    fs.appendFile(file, data, function(err) {
+      if(err) console.log(err);
+    });
+  };
+
+  var getJsonAndUpdate = function(file, spreadsheet){
+    rp(spreadsheet.url)
+      .then(function(resp) {
+        var data = getDataForQuestionnaire(resp);
+        FetchedJsonData[spreadsheet.name] = data;
+      })
+      .then(function(){
+        if(_und.contains(_und.values(FetchedJsonData), null) == false){
+          resetFile(file);
+          appendToFile(file, jsontoString());
         }
-      });
-    }
+      })
+      .catch(console.error);
+  };
+
+  spreadsheets.forEach(function(spreadsheet){
+    getJsonAndUpdate(file, spreadsheet);
   });
-};
-
-
-createFilesInJsonDump(file1, spreadsheet1);
-createFilesInJsonDump(file2, spreadsheet2);
-createFilesInJsonDump(file3, spreadsheet3);
-createFilesInJsonDump(file4, spreadsheet4);
+})();
