@@ -94,6 +94,7 @@
 }
 
 .btn.btn-red.btn-results, .btn.btn-red.btn-next-on-confirm-page{
+  margin-top: 10px;
   margin-left: 45px;
 }
 
@@ -213,7 +214,8 @@
 }
 
 .built-with-container{
-  margin-top: 125px;
+  margin-top: 25px;
+  margin-left: 45px;
 }
 
 .button-container{
